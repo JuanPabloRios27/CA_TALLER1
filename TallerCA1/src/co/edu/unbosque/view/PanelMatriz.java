@@ -32,6 +32,7 @@ public class PanelMatriz extends JPanel {
 	private JTextArea areaSalida = new JTextArea(20, 70);;
 	private JButton btnOrdenar = new JButton("Ordenar lista.");
 	private JComboBox<String> comboAlgoritmo = new JComboBox<>(new String[] { "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort" });
+	private JComboBox<String> comboOrdenamiento = new JComboBox<>(new String[] { "Dinero robado.", "Edad."});
 	private JPanel matriz = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));;
 	private JPanel algoritmo = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));;
 	private JPanel opciones = new JPanel(new GridLayout(2, 1, 5, 5));;

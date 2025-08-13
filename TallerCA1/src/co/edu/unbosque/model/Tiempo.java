@@ -21,14 +21,21 @@ public class Tiempo {
 	
 	private long fin;
 	/**
+	 * LLame al constructor para iniciar el cronometro que recorre el respectivo algoritmo.
+	 * @author Juan Pablo Rios Rodriguez.
+	 */
+	public Tiempo() {
+		startTime();
+	}
+	/**
 	 * Esta función implica que empiece el cronometro al momento de utilizar el algoritmo.
 	 * @author Juan Pablo Ríos Rodríguez.
 	 */
-	public void startTime() {
+	private void startTime() {
 		inicio = System.nanoTime();
 	}
 	/**
-	 * Esta función implica que finalize el cronometro y capture el tiempo 
+	 * Esta función permite capturar el tiempo que retomo el respectivo algoritmo. 
 	 * que toma el respectivo algoritmo en finalizar.
 	 * @author Juan Pablo Ríos Rodríguez
 	 */
@@ -36,7 +43,11 @@ public class Tiempo {
 		fin = System.nanoTime();
 		tiempo = fin-inicio;
 	}
-
+	/**
+	 * Recoje la variable del tiempo.
+	 * @author Juan Pablo Ríos Rodríguez.
+	 * @return tiempo El tiempo que recorrio el algoritmo.
+	 */
 	public long getTiempo() {
 		return tiempo;
 	}	

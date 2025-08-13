@@ -6,7 +6,9 @@ package co.edu.unbosque.util;
  */
 public class Matriz {
 	
-	
+	/**
+	 * Permite generar datos con respecto a la matriz.
+	 */
 	public void genereDatos() {
 		
 	}

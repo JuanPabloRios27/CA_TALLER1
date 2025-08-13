@@ -1,10 +1,21 @@
 package co.edu.unbosque.view;
 
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 public class Window extends JFrame {
+	
+	private PanelPoliticos panelPoliticos;
+	private PanelMatriz panelMatriz;
+	private PanelConsole panelConsole;
+	private JPanel panelPrincipal;
 	public Window() {
+		setResizable(true);
 		setTitle("Apoco");
 		setSize(600,340);
 		setLocationRelativeTo(null);
@@ -15,10 +26,36 @@ public class Window extends JFrame {
 
 	private void paneles() {
 		JTabbedPane tabs = new JTabbedPane();
-        tabs.addTab("Arreglo", new PanelPoliticos());
-        tabs.addTab("Matriz", new PanelMatriz());
-        add(tabs);
+		panelPoliticos = new PanelPoliticos();
+		panelMatriz = new PanelMatriz();
+		panelConsole = new PanelConsole();
+		panelPrincipal = new JPanel();
+        tabs.addTab("Arreglo", panelPoliticos);
+        tabs.addTab("Matriz", panelMatriz);
+        panelPrincipal.setLayout(new BorderLayout(10, 10));
+		panelPrincipal.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        panelPrincipal.add(tabs,BorderLayout.NORTH);
+        panelPrincipal.add(panelConsole,BorderLayout.CENTER);
+        add(panelPrincipal);
 		
 	}
+
+	public PanelPoliticos getPanelPoliticos() {
+		return panelPoliticos;
+	}
+
+	public PanelMatriz getPanelMatriz() {
+		return panelMatriz;
+	}
+
+	public void setPanelPoliticos(PanelPoliticos panelPoliticos) {
+		this.panelPoliticos = panelPoliticos;
+	}
+
+	public void setPanelMatriz(PanelMatriz panelMatriz) {
+		this.panelMatriz = panelMatriz;
+	}
+	
+	
 
 }

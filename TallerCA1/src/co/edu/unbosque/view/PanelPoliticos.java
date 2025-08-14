@@ -14,28 +14,33 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class PanelPoliticos extends JPanel {
-	private JButton btnGenerar = new JButton("Generar lista.");
-    private JButton btnOrdenar = new JButton("Ordenar lista.");
-    private JTextArea areaResultados;
-    private JComboBox<String> comboAlgoritmo = new JComboBox<>(new String[]{
-            "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort"
-        });;
-    private JTextField txtCantidad = new JTextField(5);
-    private JButton btnVerLista = new JButton("Ver Lista");
-    private JPanel opciones = new JPanel(new GridLayout(2, 1, 5, 5));;
-    private JPanel lista1 = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
-    private JPanel lista2 = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
-    private JTextArea areaSalida = new JTextArea(20,70);
-    private JScrollPane scroll = new JScrollPane(areaSalida);
+	/**
+	 * Este botón permite generar una arreglo de longitud variable con respecto a los politicos.
+	 */
+	private JButton btnGenerar;
+    private JButton btnOrdenar;
+    private JComboBox<String> comboAlgoritmo;
+    private JTextField txtCantidad;
+    private JButton btnVerLista;
+    private JPanel opciones;
+    private JPanel lista1;
+    private JPanel lista2;
     
     public PanelPoliticos() {
-		ajustarPaneles();
-		// Asigna los botones.
+    	setLayout(new BorderLayout(10, 10));
+		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		comboAlgoritmo= new JComboBox<>(new String[]{"Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort"});
+		btnGenerar = new JButton("Generar lista.");
+		btnOrdenar = new JButton("Ordenar lista.");
+		txtCantidad = new JTextField(5);
+		btnVerLista = new JButton("Ver Lista");
+		opciones = new JPanel(new GridLayout(2, 1, 5, 5));
+		lista1 = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
+		lista2 = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
 		agregarElementos();
 		opciones.add(lista1);
 		opciones.add(lista2);
-		add(opciones, BorderLayout.NORTH);
-		add(scroll, BorderLayout.CENTER);
+		add(opciones);
     }
 	private void agregarElementos() {
 		lista1.add(new JLabel("Cantidad: "));
@@ -45,10 +50,52 @@ public class PanelPoliticos extends JPanel {
         lista2.add(comboAlgoritmo);
         lista2.add(btnOrdenar);
 	}
-	private void ajustarPaneles() {
-		setLayout(new BorderLayout(10, 10));
-		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-		areaSalida.setEnabled(false);
-		scroll.setBorder(BorderFactory.createTitledBorder("Salida"));
+	public JButton getBtnGenerar() {
+		return btnGenerar;
+	}
+	public JButton getBtnOrdenar() {
+		return btnOrdenar;
+	}
+	public JComboBox<String> getComboAlgoritmo() {
+		return comboAlgoritmo;
+	}
+	public JTextField getTxtCantidad() {
+		return txtCantidad;
+	}
+	public JButton getBtnVerLista() {
+		return btnVerLista;
+	}
+	public JPanel getOpciones() {
+		return opciones;
+	}
+	public JPanel getLista1() {
+		return lista1;
+	}
+	public JPanel getLista2() {
+		return lista2;
+	}
+	public void setBtnGenerar(JButton btnGenerar) {
+		this.btnGenerar = btnGenerar;
+	}
+	public void setBtnOrdenar(JButton btnOrdenar) {
+		this.btnOrdenar = btnOrdenar;
+	}
+	public void setComboAlgoritmo(JComboBox<String> comboAlgoritmo) {
+		this.comboAlgoritmo = comboAlgoritmo;
+	}
+	public void setTxtCantidad(JTextField txtCantidad) {
+		this.txtCantidad = txtCantidad;
+	}
+	public void setBtnVerLista(JButton btnVerLista) {
+		this.btnVerLista = btnVerLista;
+	}
+	public void setOpciones(JPanel opciones) {
+		this.opciones = opciones;
+	}
+	public void setLista1(JPanel lista1) {
+		this.lista1 = lista1;
+	}
+	public void setLista2(JPanel lista2) {
+		this.lista2 = lista2;
 	}
 }

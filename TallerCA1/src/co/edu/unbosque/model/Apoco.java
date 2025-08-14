@@ -1,22 +1,63 @@
 package co.edu.unbosque.model;
 
 import java.util.List;
-
+import java.lang.Math;
 /**
  * Aca almacenamos toda la información correspondiente con respecto al sistema de información que maneja la corporación APOCO.
  * @author Alejandro
+ * @author Juan Pablo Ríos Rodríguez.
  */
 public class Apoco {
 	/**
+	 * Nombres generados en un arreglo que permite señalar a los politicos culpables en el proceso.
+	 */
+	private String[] nombres = {"Alvaro Uribe Velez","Gustavo Petro Urrego","Juan Manuel Santos","Ivan Duque","Irene Velez","Miguel Uribe Turbay","Synder Pinilla","Cesar Gaviria","Alexander López","Berrence Bodoya","Aida Avelia","Francisco Santos Calderón","Fernando Londoño Hoyos","Jaime Bermúdez Merizalde","Roberto Junguito Bonnet","Alberto Carrasquilla Barrera","Juan Francisco Lozano Ramírez","George W. Bush","Barack Obama","Alfonso Prada","Hugo Chavéz","Luis Fernando Velasco","Juan Fernando Cristo","Alvaro Leyva","Armando Benedetti","Laura Sarabia","Ricardo Bonilla González","Dr Ivo. Robotnik (Eggman)","Andres Camacho", "Enrique Peñalosa", "Luis Carlos Galan","Kemal Atatürk","Alejandro Gaviria","Aurora Vergara","Francia Márquez","Viqui Davila","El pato donald","Otty Patiño","Juan Olviedo Lopéz"};
+	/**
 	 * Un arreglo de longitud variable que implica todos los politicos que se encuentran bajo investigación.
 	 */
-	Politico[] politicosSospechosos;
+	private Politico[] politicosSospechosos;
 	/**
 	 * Matriz de tamaño k*m que represente un grupo de n ladrones.
 	 */
-	Ladron[][] ladrones;
+	private Ladron[][] ladrones;
 	/**
 	 * La lista de todas las pruebas empiricas que llevaron a cabo los algoritmos de ordenamiento.
 	 */
-	List<Estadisticas> estadisticas;
+	private List<Estadisticas> estadisticas;
+	
+	/**
+	 * Genera el arreglo con longitud n, que permite realizar la respectiva prueba.
+	 * @author Juan Pablo Ríos Rodríguez
+	 */
+	public void generarPoliticos(int n) {
+		politicosSospechosos = new Politico[n];
+		for(int i = 0; i < n; i++) {
+			politicosSospechosos[i] = new Politico(Integer.toString(i),nombres[(int)(Math.random()*nombres.length)],(Math.random()*1000000000-100000+1)+100000,(int)(Math.random()*99-1));
+		}
+		System.out.println(politicosSospechosos[1].toString());
+	}
+	/**
+	 * Toma el arreglo de longitud variable que representa los politicos acusados de corrupción.
+	 * @return politicosSospechosos el arreglo de longitud variable que representa a los respectivos politicos acusados de corrupción.
+	 */
+	public Politico[] getPoliticosSospechosos() {
+		return politicosSospechosos;
+	}
+	public Ladron[][] getLadrones() {
+		return ladrones;
+	}
+	public List<Estadisticas> getEstadisticas() {
+		return estadisticas;
+	}
+	public void setPoliticosSospechosos(Politico[] politicosSospechosos) {
+		this.politicosSospechosos = politicosSospechosos;
+	}
+	public void setLadrones(Ladron[][] ladrones) {
+		this.ladrones = ladrones;
+	}
+	public void setEstadisticas(List<Estadisticas> estadisticas) {
+		this.estadisticas = estadisticas;
+	}
+	
+	
 }

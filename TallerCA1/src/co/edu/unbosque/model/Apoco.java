@@ -9,10 +9,6 @@ import java.lang.Math;
  */
 public class Apoco {
 	/**
-	 * Nombres generados en un arreglo que permite señalar a los politicos culpables en el proceso.
-	 */
-	private String[] nombres = {"Alvaro Uribe Velez","Gustavo Petro Urrego","Juan Manuel Santos","Ivan Duque","Irene Velez","Miguel Uribe Turbay","Synder Pinilla","Cesar Gaviria","Alexander López","Berrence Bodoya","Aida Avelia","Francisco Santos Calderón","Fernando Londoño Hoyos","Jaime Bermúdez Merizalde","Roberto Junguito Bonnet","Alberto Carrasquilla Barrera","Juan Francisco Lozano Ramírez","George W. Bush","Barack Obama","Alfonso Prada","Hugo Chavéz","Luis Fernando Velasco","Juan Fernando Cristo","Alvaro Leyva","Armando Benedetti","Laura Sarabia","Ricardo Bonilla González","Dr Ivo. Robotnik (Eggman)","Andres Camacho", "Enrique Peñalosa", "Luis Carlos Galan","Kemal Atatürk","Alejandro Gaviria","Aurora Vergara","Francia Márquez","Viqui Davila","El pato donald","Otty Patiño","Juan Olviedo Lopéz"};
-	/**
 	 * Un arreglo de longitud variable que implica todos los politicos que se encuentran bajo investigación.
 	 */
 	private Politico[] politicosSospechosos;
@@ -32,7 +28,7 @@ public class Apoco {
 	public void generarPoliticos(int n) {
 		politicosSospechosos = new Politico[n];
 		for(int i = 0; i < n; i++) {
-			politicosSospechosos[i] = new Politico(Integer.toString(i),nombres[(int)(Math.random()*nombres.length)],(Math.random()*1000000000-100000+1)+100000,(int)(Math.random()*99-1));
+			politicosSospechosos[i] = new Politico(Integer.toString(i),"Politico #"+i,(Math.random()*1000000000-100000+1)+100000,(int)(Math.random()*99-1));
 		}
 		System.out.println(politicosSospechosos[1].toString());
 	}
@@ -43,6 +39,10 @@ public class Apoco {
 	public Politico[] getPoliticosSospechosos() {
 		return politicosSospechosos;
 	}
+	/**
+	 * 
+	 * @return ladrones La matriz de forma de arreglo que posiciona los respectivos 
+	 */
 	public Ladron[][] getLadrones() {
 		return ladrones;
 	}

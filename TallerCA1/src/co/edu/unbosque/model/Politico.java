@@ -1,8 +1,6 @@
 package co.edu.unbosque.model;
 /**
- * 
- * Es el objeto de tipo politico que implica qué esta siendo señalado por ser responsable de un caso de corrupción
- * 
+ * Es el objeto de tipo politico que implica qué esta siendo señalado por ser responsable de un caso de corrupción.
  * @author Alejandro
  */
 public class Politico {

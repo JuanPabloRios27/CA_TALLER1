@@ -24,6 +24,7 @@ public class Apoco {
 	 * La lista de todas las pruebas empiricas que llevaron a cabo los algoritmos de ordenamiento.
 	 */
 	private List<Estadisticas> estadisticas;
+	
 	/**
 	 * Genera el arreglo con longitud n, que permite realizar la respectiva prueba.
 	 * @author Juan Pablo Ríos Rodríguez

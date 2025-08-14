@@ -23,21 +23,21 @@ public class PanelMatriz extends JPanel {
 	/**
 	 * El respectivo botón que permite crear las matrices.
 	 */
-	private JButton btnCrearMatriz = new JButton("Crear Matriz");
+	private JButton btnCrearMatriz;
 	/**
 	 * El respectivo boton que permite llenar la matriz de tamaño k*m.
 	 */
-	private JButton btnLlenarMatriz = new JButton("Llenar Matriz");
+	private JButton btnLlenarMatriz;
 	/**
-	 * 
+	 * El respectivo boton que permite ver la respectiva matriz.
 	 */
-	private JButton btnVerMatriz = new JButton("Ver Matriz");
-	private JButton btnOrdenar = new JButton("Ordenar lista.");
-	private JComboBox<String> comboAlgoritmo = new JComboBox<>(new String[] { "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort" });
-	private JComboBox<String> comboOrdenamiento = new JComboBox<>(new String[] { "Dinero robado.", "Edad."});
-	private JPanel matriz = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
-	private JPanel algoritmo = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
-	private JPanel opciones = new JPanel(new GridLayout(2, 1, 5, 5));
+	private JButton btnVerMatriz;
+	private JButton btnOrdenar;
+	private JComboBox<String> comboAlgoritmo;
+	private JComboBox<String> comboOrdenamiento;
+	private JPanel matriz;
+	private JPanel algoritmo;
+	private JPanel opciones;
 	
 	/**
 	 * Ajuste básico del panel de las matrices.
@@ -47,6 +47,15 @@ public class PanelMatriz extends JPanel {
 		// Ajuste los bordes.
 		setLayout(new BorderLayout(10, 10));
 		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		btnCrearMatriz = new JButton("Crear Matriz");
+		btnLlenarMatriz = new JButton("Llenar Matriz");
+		btnVerMatriz = new JButton("Ver Matriz");
+		btnOrdenar = new JButton("Ordenar lista.");
+		comboAlgoritmo = new JComboBox<>(new String[] { "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort" });
+		comboOrdenamiento = new JComboBox<>(new String[] { "Dinero robado.", "Edad."});
+		matriz = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
+		algoritmo = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
+		opciones = new JPanel(new GridLayout(2, 1, 5, 5));
 		// Asigna los botones.
 		agregarElementos();
 		add(opciones);

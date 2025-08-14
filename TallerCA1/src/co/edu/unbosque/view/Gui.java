@@ -1,37 +1,61 @@
 package co.edu.unbosque.view;
 
-import java.util.Scanner;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
-
-/**
- * Esta es la interfaz general del usuario.
- */
-public class Gui {
+public class Gui extends JFrame {
 	
-	private Window window;
-	private Scanner sc;
-	
+	private PanelPoliticos panelPoliticos;
+	private PanelMatriz panelMatriz;
+	private PanelConsole panelConsole;
+	private JPanel panelPrincipal;
 	public Gui() {
-		window = new Window();
-		sc = new Scanner(System.in);
+		setResizable(true);
+		setTitle("Apoco");
+		setSize(600,340);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		paneles();
+		setVisible(true);
 	}
 
-	public Window getWindow() {
-		return window;
+	private void paneles() {
+		JTabbedPane tabs = new JTabbedPane();
+		panelPoliticos = new PanelPoliticos();
+		panelMatriz = new PanelMatriz();
+		panelConsole = new PanelConsole();
+		panelPrincipal = new JPanel();
+        tabs.addTab("Arreglo", panelPoliticos);
+        tabs.addTab("Matriz", panelMatriz);
+        panelPrincipal.setLayout(new BorderLayout(10, 10));
+		panelPrincipal.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        panelPrincipal.add(tabs,BorderLayout.NORTH);
+        panelPrincipal.add(panelConsole,BorderLayout.CENTER);
+        add(panelPrincipal);
+		
 	}
 
-	public Scanner getSc() {
-		return sc;
+	public PanelPoliticos getPanelPoliticos() {
+		return panelPoliticos;
 	}
 
-	public void setWindow(Window window) {
-		this.window = window;
+	public PanelMatriz getPanelMatriz() {
+		return panelMatriz;
 	}
 
-	public void setSc(Scanner sc) {
-		this.sc = sc;
+	public void setPanelPoliticos(PanelPoliticos panelPoliticos) {
+		this.panelPoliticos = panelPoliticos;
+	}
+
+	public void setPanelMatriz(PanelMatriz panelMatriz) {
+		this.panelMatriz = panelMatriz;
 	}
 	
-}
+	
 
+}

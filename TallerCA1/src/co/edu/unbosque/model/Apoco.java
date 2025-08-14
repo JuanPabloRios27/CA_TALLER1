@@ -40,21 +40,37 @@ public class Apoco {
 		return politicosSospechosos;
 	}
 	/**
-	 * 
+	 * Esta función obtiene la matriz que representa los ladrones.
 	 * @return ladrones La matriz de forma de arreglo que posiciona los respectivos 
 	 */
 	public Ladron[][] getLadrones() {
 		return ladrones;
 	}
+	/**
+	 * Esta función obtiene las estadisticas.
+	 * @return estadisticas Las respectivas estadisticas que revelan resultados entorno al algoritmo que se ha probado de forma empirica. 
+	 */
 	public List<Estadisticas> getEstadisticas() {
 		return estadisticas;
 	}
+	/**
+	 * Modifique el arreglo de los politicos en caso de ser necesario.
+	 * @param politicosSospechosos El respectivo arreglo a modificar.
+	 */
 	public void setPoliticosSospechosos(Politico[] politicosSospechosos) {
 		this.politicosSospechosos = politicosSospechosos;
 	}
+	/**
+	 * Modifique la matriz que se encuentran almacenados los respectivos ladrones.
+	 * @param ladrones
+	 */
 	public void setLadrones(Ladron[][] ladrones) {
 		this.ladrones = ladrones;
 	}
+	/**
+	 * Modifique la lista de estadísticas.
+	 * @param estadisticas La lista de resultados que se va a modificar
+	 */
 	public void setEstadisticas(List<Estadisticas> estadisticas) {
 		this.estadisticas = estadisticas;
 	}

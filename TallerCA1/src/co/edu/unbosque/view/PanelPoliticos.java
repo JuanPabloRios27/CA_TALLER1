@@ -18,14 +18,38 @@ public class PanelPoliticos extends JPanel {
 	 * Este botón permite generar una arreglo de longitud variable con respecto a los politicos.
 	 */
 	private JButton btnGenerar;
+	/**
+	 * Este botón ordena al conjunto de politicos corruptos.
+	 */
     private JButton btnOrdenar;
+    /**
+     * Especifique que algoritmo de ordenamiento quiere utilizar.
+     */
     private JComboBox<String> comboAlgoritmo;
+    /**
+     * Ayuda al usuario a definir el tamaño del respectivo tamaño de parte de los politicos
+     */
     private JTextField txtCantidad;
+    /**
+     * Visualize el conjunto de corruptos que genero e ordeno.
+     */
     private JButton btnVerLista;
+    /**
+     * Un panel orientado a ordenar las configuraciones con respecto al manejo del respectivo arreglo de parte de los corruptos.
+     */
     private JPanel opciones;
+    /**
+     * Listado de opciones que tendran la función de crear y generar información con respecto al arreglo de los políticos.
+     */
     private JPanel lista1;
+    /**
+     * Listado de opciones que tendran la función de ordenar el respectivo arreglo.
+     */
     private JPanel lista2;
-    
+    /**
+     * Ajuste el panel de los políticos corruptos.
+     * @author Alejandro
+     */
     public PanelPoliticos() {
     	setLayout(new BorderLayout(10, 10));
 		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -42,6 +66,9 @@ public class PanelPoliticos extends JPanel {
 		opciones.add(lista2);
 		add(opciones);
     }
+    /**
+     * Agrege y posicione los respectivos componentes.
+     */
 	private void agregarElementos() {
 		lista1.add(new JLabel("Cantidad: "));
 		lista1.add(txtCantidad);

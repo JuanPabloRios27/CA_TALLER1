@@ -12,7 +12,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
-
+/**
+ * Esta clase permite ajustar el panel de la consola.
+ * En ella vamos a personalizar los resultados del respectivo algoritmo.
+ * @author Alejandro
+ */
 public class PanelConsole extends JPanel{
 	private JScrollPane scroll;
 	private JTextArea areaSalida;

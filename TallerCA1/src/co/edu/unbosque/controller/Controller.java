@@ -1,10 +1,17 @@
 
 package co.edu.unbosque.controller;
 
+import java.awt.AWTError;
+import java.awt.AWTException;
+import java.awt.Event;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JOptionPane;
+
+import org.w3c.dom.events.EventException;
 
 import co.edu.unbosque.model.Apoco;
 import co.edu.unbosque.model.Tiempo;
@@ -44,6 +51,7 @@ public class Controller {
 	 */
 	private void asignarOyentes() {
 		gui.getPanelPoliticos().getBtnGenerar().addActionListener(acciones());
+		gui.getPanelPoliticos().getBtnVerArreglo().addActionListener(acciones());
 	}
 	/**
 	 * Asigna funciones de parte de cualquier componente que se encuentre en la respectiva interfaz gráfica del usuario.
@@ -54,10 +62,17 @@ public class Controller {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					if (e.getActionCommand().equals("Generar lista.")) {
+					if (e.getActionCommand().equals("Generar arreglo.")) {
 						apoco.generarPoliticos(
 								Integer.parseInt(gui.getPanelPoliticos().getTxtCantidad().getText()));
+						gui.mostrarMensaje("Se ha generado la lista.\n");
+					}else if(e.getActionCommand().equals("Ver arreglo.")) {
+						gui.mostrarMensaje("ID \tNombre \tDinero robado \tEdad \n"+apoco.mostrarPoliticos());
+					}else {
+						System.out.println(e);
 					}
+				}catch(NullPointerException e1) {
+					JOptionPane.showMessageDialog(null, "No has llenado el respectivo elemento.");
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Entrada inválida.");
 				}

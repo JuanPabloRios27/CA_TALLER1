@@ -1,6 +1,9 @@
 package co.edu.unbosque.model;
 
 import java.util.List;
+
+import co.edu.unbosque.util.Ordenador;
+
 import java.lang.Math;
 /**
  * Aca almacenamos toda la información correspondiente con respecto al sistema de información que maneja la corporación APOCO.
@@ -20,17 +23,36 @@ public class Apoco {
 	 * La lista de todas las pruebas empiricas que llevaron a cabo los algoritmos de ordenamiento.
 	 */
 	private List<Estadisticas> estadisticas;
+	/**
+	 * LLame a la función para realizar las funciones que otorga el arreglo de los políticos.
+	 */
+	private Ordenador ordenador;
 	
 	/**
-	 * Genera el arreglo con longitud n, que permite realizar la respectiva prueba.
+	 * Prepara las operaciones para realizar los respectivos algoritmos.
+	 * @author Juan Pablo Ríos Rodríguez.
+	 */
+	public Apoco() {
+		ordenador = new Ordenador();
+	}
+	/**
+	 * Muestra el arreglo con respecto a los políticos.
+	 * @author Juan Pablo Ríos Rodríguez
+	 * @return El arreglo completo con respecto a los politicos.
+	 */
+	public String mostrarPoliticos() {
+		StringBuilder politico = new StringBuilder();
+		for(int i = 0; i < politicosSospechosos.length; i++) {
+			politico.append(politicosSospechosos[i]);
+		}
+		return politico.toString();
+	}
+	/**
+	 * Llame a la función para generar el arreglo con longitud n, que permita realizar la respectiva prueba.
 	 * @author Juan Pablo Ríos Rodríguez
 	 */
 	public void generarPoliticos(int n) {
-		politicosSospechosos = new Politico[n];
-		for(int i = 0; i < n; i++) {
-			politicosSospechosos[i] = new Politico(Integer.toString(i),"Politico #"+i,(Math.random()*1000000000-100000+1)+100000,(int)(Math.random()*99-1));
-		}
-		System.out.println(politicosSospechosos[1].toString());
+		politicosSospechosos = ordenador.genereDatos(n);
 	}
 	/**
 	 * Toma el arreglo de longitud variable que representa los politicos acusados de corrupción.

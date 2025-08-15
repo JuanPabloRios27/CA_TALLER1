@@ -1,4 +1,7 @@
 package co.edu.unbosque.util;
+
+import co.edu.unbosque.model.Politico;
+
 /**
  * Genere la matriz de los respectivos ladrones.
  * 
@@ -6,13 +9,7 @@ package co.edu.unbosque.util;
  */
 public class Matriz {
 	
-	/**
-	 * Permite generar datos con respecto a la matriz.
-	 * @author Juan Pablo Ríos Rodríguez.
-	 */
-	public void genereDatos() {
-		
-	}
+	
 	
 	public void creaMatriz() {
 		

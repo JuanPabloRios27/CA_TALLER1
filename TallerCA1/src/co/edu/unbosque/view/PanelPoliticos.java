@@ -57,10 +57,10 @@ public class PanelPoliticos extends JPanel {
     	setLayout(new BorderLayout(10, 10));
 		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		comboAlgoritmo= new JComboBox<>(new String[]{"Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort"});
-		btnGenerar = new JButton("Generar lista.");
-		btnOrdenar = new JButton("Ordenar lista.");
+		btnGenerar = new JButton("Generar arreglo.");
+		btnOrdenar = new JButton("Ordenar arreglo.");
 		txtCantidad = new JTextField(5);
-		btnVerLista = new JButton("Ver Lista");
+		btnVerLista = new JButton("Ver arreglo.");
 		opciones = new JPanel(new GridLayout(2, 1, 5, 5));
 		conjuntoOpciones1 = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
 		conjuntoOpciones2 = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));

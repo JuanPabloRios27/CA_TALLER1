@@ -52,6 +52,7 @@ public class Controller {
 	private void asignarOyentes() {
 		gui.getPanelPoliticos().getBtnGenerar().addActionListener(acciones());
 		gui.getPanelPoliticos().getBtnVerArreglo().addActionListener(acciones());
+		gui.getPanelPoliticos().getBtnOrdenar().addActionListener(acciones());
 	}
 	/**
 	 * Asigna funciones de parte de cualquier componente que se encuentre en la respectiva interfaz gráfica del usuario.
@@ -67,7 +68,7 @@ public class Controller {
 								Integer.parseInt(gui.getPanelPoliticos().getTxtCantidad().getText()));
 						gui.mostrarMensaje("Se ha generado la lista.\n");
 					}else if(e.getActionCommand().equals("Ver arreglo.")) {
-						gui.mostrarMensaje("ID \tNombre \tDinero robado \tEdad \n"+apoco.mostrarPoliticos());
+						gui.mostrarMensaje("ID \tDinero robado \tEdad \n"+apoco.mostrarPoliticos());
 					}else {
 						System.out.println(e);
 					}

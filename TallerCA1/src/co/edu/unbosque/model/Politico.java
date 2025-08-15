@@ -1,17 +1,13 @@
 package co.edu.unbosque.model;
 /**
  * Es el objeto de tipo politico que implica qué esta siendo señalado por ser responsable de un caso de corrupción.
- * @author Alejandro
+ * @author Juan Pablo Ríos Rodríguez y Alejandro
  */
 public class Politico {
 	/**
 	 * Cedula de ciudadania del respectivo ciudadano.
 	 */
-	private String id;
-	/**
-	 * Nombre del respectivo politico acusado de corrupción.
-	 */
-	private String nombre;
+	private int id;
 	/**
 	 * Dinero robado que lo vincula al respectivo politico (Valorizado en rublos).
 	 */
@@ -20,11 +16,8 @@ public class Politico {
 	 * Años de edad que posee el respectivo mandatario.
 	 */
 	private int edad;
-	public String getId() {
+	public int getId() {
 		return id;
-	}
-	public String getNombre() {
-		return nombre;
 	}
 	public double getDineroRobado() {
 		return dineroRobado;
@@ -32,11 +25,8 @@ public class Politico {
 	public int getEdad() {
 		return edad;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 	public void setDineroRobado(double dineroRobado) {
 		this.dineroRobado = dineroRobado;
@@ -44,16 +34,15 @@ public class Politico {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-	public Politico(String id, String nombre, double dineroRobado, int edad) {
+	public Politico(int id, double dineroRobado, int edad) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
 		this.dineroRobado = dineroRobado;
 		this.edad = edad;
 	}
 	@Override
 	public String toString() {
-		return id + " \t" + nombre + " \t" + dineroRobado + " \t" + edad + " \t \n";
+		return id + " \t" + dineroRobado + " \t" + edad + " \t \n";
 	}
 	
 	

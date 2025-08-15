@@ -63,7 +63,7 @@ public class PanelMatriz extends JPanel {
 	
 	/**
 	 * Ajusta el panel donde vamos a agregar los respectivos elementos.
-	 * @author Juan Pablo Ríos Rodríguez
+	 * @author Alejandro
 	 * 
 	 */
 	private void agregarElementos() {

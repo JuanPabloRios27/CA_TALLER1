@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 /**
  * Este es el panel de los politicos.
- * @author Juan Pablo Ríos Rodríguez
+ * @author Alejandro
  */
 public class PanelPoliticos extends JPanel {
 	/**

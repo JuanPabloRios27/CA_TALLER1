@@ -19,15 +19,16 @@ import javax.swing.border.Border;
  */
 public class PanelConsole extends JPanel{
 	/**
-	 * 
+	 * Este scroll permititra ubicar visualizar los diferentes resultados entorno al programa.
 	 */
 	private JScrollPane scroll;
 	/**
-	 * 
+	 * El texto que muestra la salida del programa computacional.
 	 */
 	private JTextArea areaSalida;
 	/**
-	 * 
+	 * El constructor del panel consola.
+	 * @author Juan Pablo Ríos Rodríguez.
 	 */
 	public PanelConsole() {
 		setLayout(new BorderLayout(10, 10));
@@ -39,29 +40,29 @@ public class PanelConsole extends JPanel{
 		add(scroll);
 	}
 	/**
-	 * 
-	 * @return
+	 * Tome información con respecto al JScrollPane.
+	 * @return scroll El scroll que permite revisar la salida del programa.
 	 */
 	public JScrollPane getScroll() {
 		return scroll;
 	}
 	/**
-	 * 
-	 * @return
+	 * Tome información con respecto al texto de salida.
+	 * @return areaSalida el textArea que mostrara la respectiva salida del programa.
 	 */
 	public JTextArea getAreaSalida() {
 		return areaSalida;
 	}
 	/**
-	 * 
-	 * @param scroll
+	 * Modifica la información con respecto al JScrollPane.
+	 * @param scroll El scroll que permite revisar la salida del programa.
 	 */
 	public void setScroll(JScrollPane scroll) {
 		this.scroll = scroll;
 	}
 	/**
-	 * 
-	 * @param areaSalida
+	 * Modifica el texto de salida.
+	 * @param areaSalida el textArea que mostrara la respectiva salida del programa.
 	 */
 	public void setAreaSalida(JTextArea areaSalida) {
 		this.areaSalida = areaSalida;

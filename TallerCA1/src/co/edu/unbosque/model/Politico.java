@@ -53,7 +53,7 @@ public class Politico {
 	}
 	@Override
 	public String toString() {
-		return "Politico [id=" + id + ", nombre=" + nombre + ", dineroRobado=" + dineroRobado + ", edad=" + edad + "]";
+		return id + " \t" + nombre + " \t" + dineroRobado + " \t" + edad + " \t \n";
 	}
 	
 	

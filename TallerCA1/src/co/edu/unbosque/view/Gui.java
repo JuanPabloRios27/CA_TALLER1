@@ -81,7 +81,21 @@ public class Gui extends JFrame {
 	public void setPanelMatriz(PanelMatriz panelMatriz) {
 		this.panelMatriz = panelMatriz;
 	}
-	
+	public PanelConsole getPanelConsole() {
+		return panelConsole;
+	}
+	public JPanel getPanelPrincipal() {
+		return panelPrincipal;
+	}
+	public void setPanelConsole(PanelConsole panelConsole) {
+		this.panelConsole = panelConsole;
+	}
+	public void setPanelPrincipal(JPanel panelPrincipal) {
+		this.panelPrincipal = panelPrincipal;
+	}
+	public void mostrarMensaje(String text) {
+		getPanelConsole().getAreaSalida().setText(getPanelConsole().getAreaSalida().getText()+text);
+	}
 	
 
 }

@@ -37,6 +37,27 @@ public class Apoco {
 		ordenador = new Ordenador();
 		matriz = new Matriz();
 	}
+	public String ordenarLadrones(int selectedIndex) {
+		StringBuilder politico = new StringBuilder();
+		if(selectedIndex == 0) {
+			ladrones =  matriz.bubbleSort(ladrones);
+			for(int i = 0; i < ladrones.length; i++) {
+				for(int j = 0; j < ladrones[0].length; j++) {
+					politico.append(ladrones[i][j].toString());
+				}
+				politico.append("\n");
+			}
+		}else if(selectedIndex == 1) {
+			ladrones =  matriz.selectionSort(ladrones);
+			for(int i = 0; i < ladrones.length; i++) {
+				for(int j = 0; j < ladrones[0].length; j++) {
+					politico.append(ladrones[i][j].toString());
+				}
+				politico.append("\n");
+			}
+		}
+		return politico.toString();
+	}
 	/**
 	 * Muestra el arreglo con respecto a los políticos.
 	 * @author Juan Pablo Ríos Rodríguez
@@ -116,6 +137,7 @@ public class Apoco {
 	public void setEstadisticas(List<Estadisticas> estadisticas) {
 		this.estadisticas = estadisticas;
 	}
+	
 	
 	
 	

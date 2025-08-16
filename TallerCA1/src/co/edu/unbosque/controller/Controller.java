@@ -55,6 +55,7 @@ public class Controller {
 		gui.getPanelPoliticos().getBtnOrdenar().addActionListener(acciones());
 		gui.getPanelMatriz().getBtnCrearMatriz().addActionListener(acciones());
 		gui.getPanelMatriz().getBtnVerMatriz().addActionListener(acciones());
+		gui.getPanelMatriz().getBtnOrdenar().addActionListener(acciones());
 	}
 	/**
 	 * Asigna funciones de parte de cualquier componente que se encuentre en la respectiva interfaz gráfica del usuario.
@@ -75,8 +76,9 @@ public class Controller {
 						apoco.generarLadrones(Integer.parseInt(gui.getPanelMatriz().getTextLlenarMatriz().getText()));
 						gui.mostrarMensaje("Se ha generado la matriz.\n");
 					}else if(e.getActionCommand().equals("Ver Matriz.")) {
-						
-						gui.mostrarMensaje("ladrones generados. \n"+apoco.mostrarLadrones());
+						gui.mostrarMensaje("Ladrones mostrados \n"+apoco.mostrarLadrones());
+					}else if(e.getActionCommand().equals("Ordenar Matriz.")) {
+						gui.mostrarMensaje("Ladrones ordenados.\n"+apoco.ordenarLadrones(gui.getPanelMatriz().getComboAlgoritmo().getSelectedIndex()));
 					}else {
 						System.out.println(e);
 					}

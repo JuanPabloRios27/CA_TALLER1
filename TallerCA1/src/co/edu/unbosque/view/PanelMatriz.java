@@ -35,7 +35,6 @@ public class PanelMatriz extends JPanel {
 	private JButton btnVerMatriz;
 	private JButton btnOrdenar;
 	private JComboBox<String> comboAlgoritmo;
-	private JComboBox<String> comboOrdenamiento;
 	private JPanel matriz;
 	private JPanel algoritmo;
 	private JPanel opciones;
@@ -51,9 +50,8 @@ public class PanelMatriz extends JPanel {
 		btnCrearMatriz = new JButton("Crear Matriz.");
 		textllenarMatriz = new JTextField(5);
 		btnVerMatriz = new JButton("Ver Matriz.");
-		btnOrdenar = new JButton("Ordenar lista.");
+		btnOrdenar = new JButton("Ordenar Matriz.");
 		comboAlgoritmo = new JComboBox<>(new String[] { "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort" });
-		comboOrdenamiento = new JComboBox<>(new String[] { "Dinero robado.", "Edad."});
 		matriz = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
 		algoritmo = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
 		opciones = new JPanel(new GridLayout(2, 1, 5, 5));
@@ -111,13 +109,6 @@ public class PanelMatriz extends JPanel {
 	 */
 	public JComboBox<String> getComboAlgoritmo() {
 		return comboAlgoritmo;
-	}
-	/**
-	 * Obtenga la caja de ordenamiento con respecto a que forma vamos a ordenar la matriz (Edad o dinero robado).
-	 * @return comboOrdenamiento La caja de opciones con respecto a que algoritmo de ordenamiento debemos utilizar.
-	 */
-	public JComboBox<String> getComboOrdenamiento() {
-		return comboOrdenamiento;
 	}
 	/**
 	 * Obtenga el conjunto de opciones con respecto a la matriz.
@@ -179,10 +170,6 @@ public class PanelMatriz extends JPanel {
 	 * Modifique la caja de opciones que permite identificar de que forma se va a ordenar la respectiva matriz.
 	 * @param comboOrdenamiento La caja de opciones que identifica el ordenamiento, ya sea por la edad o por dinero.
 	 */
-	public void setComboOrdenamiento(JComboBox<String> comboOrdenamiento) {
-		this.comboOrdenamiento = comboOrdenamiento;
-	}
-
 	/**
 	 * Modifique el conjunto de opciones con respecto a la matriz.
 	 * @param matriz El conjunto de opciones que permite crear y generar datos con respecto a la matriz.

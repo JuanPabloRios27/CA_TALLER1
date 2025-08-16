@@ -12,17 +12,44 @@ import co.edu.unbosque.model.Politico;
  * @author Juan Pablo Ríos Rodríguez
  */
 public class Matriz {
-	
-	
-	
-	
-	
-	public void ordenarMatrizEdad() {
+	/**
+	 * Ordene la matriz de parte del algoritmo de ordenamiento bubblesort.
+	 * @author Juan Pablo Ríos Rodríguez
+	 * @see <a href="https://www.geeksforgeeks.org/dsa/bubble-sort-algorithm/">Bubble Sort Documentation</a>
+	 */
+	public Ladron[][] bubbleSort(Ladron[][] ladron) {
+		//Ordene la edad.
 		
+		
+		return null;
 	}
-	
-	public void ordenarMatrizDimero() {
-		
+	/**
+	 * Ordene la matriz de parte del algoritmo de ordenamiento bubblesort.
+	 * @author Juan Pablo Ríos Rodríguez
+	 */
+	public Ladron[][] selectionSort() {
+		return null;
+	}
+	/**
+	 * Ordene la matriz de parte del algoritmo de ordenamiento bubblesort.
+	 * @author Juan Pablo Ríos Rodríguez
+	 */
+	public Ladron[][] insertionSort() {
+		return null;
+	}
+	/**
+	 * Ordene la matriz de parte del algoritmo de ordenamiento bubblesort.
+	 * @author Juan Pablo Ríos Rodríguez
+	 */
+	public Ladron[][] mergeSort() {
+		return null;
+	}
+	/**
+	 * Ordene la matriz de parte del algoritmo de ordenamiento bubblesort.
+	 * @author Juan Pablo Ríos Rodríguez
+	 */
+	public Ladron[][] quickSort() {
+		return null;
 	}
 	/**
 	 * Genere la matriz con respecto a los ladrones.
@@ -38,7 +65,7 @@ public class Matriz {
 				i = i / d;
 				mcm.add(d);
 			}else {
-				d=i;
+				d++;
 			}
 		}
 		int a=1, b=1;
@@ -57,11 +84,12 @@ public class Matriz {
 		int id = 0;
 		for (int x = 0; x < a ; x ++) {
 			for (int j = 0; j < b; j ++) {
-				ladronnuevo[x][j] = new Ladron(id, (int) (Math.random()*(100000-1000)+1)+1000,(int) (int)(Math.random()*99-5));
+				ladronnuevo[x][j] = new Ladron(id, (int) (Math.random()*(100000-1000)+1)+1000,(int)(Math.random()*(99-12)+1)+12);
 				id++;
 			}
 		}
 		return ladronnuevo;
 	}
+	
 
 }

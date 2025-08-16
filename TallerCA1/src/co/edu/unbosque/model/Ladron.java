@@ -7,11 +7,7 @@ public class Ladron {
 	/**
 	 * Clave de identificación con respecto al ladrón.
 	 */
-	private String id;
-	/**
-	 * Nombre completo del implicado ladrón.
-	 */
-	private String nombre;
+	private int id;
 	/**
 	 * Dinero robado que lo vincula al respectivo politico (Valorizado en rublos).
 	 */
@@ -22,18 +18,14 @@ public class Ladron {
 	private int edad;
 	
 	
-	public Ladron(String id, String nombre, double dineroRobado, int edad) {
+	public Ladron(int id, double dineroRobado, int edad) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
 		this.dineroRobado = dineroRobado;
 		this.edad = edad;
 	}
-	public String getId() {
+	public int getId() {
 		return id;
-	}
-	public String getNombre() {
-		return nombre;
 	}
 	public double getDineroRobado() {
 		return dineroRobado;
@@ -41,17 +33,18 @@ public class Ladron {
 	public int getEdad() {
 		return edad;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 	public void setDineroRobado(double dineroRobado) {
 		this.dineroRobado = dineroRobado;
 	}
 	public void setEdad(int edad) {
 		this.edad = edad;
+	}
+	@Override
+	public String toString() {
+		return "Ladron [id=" + id + ", dineroRobado=" + dineroRobado + ", edad=" + edad + "]";
 	}
 	
 	

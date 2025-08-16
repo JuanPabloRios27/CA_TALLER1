@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  * Este es el panel de las matrices.
@@ -25,9 +26,9 @@ public class PanelMatriz extends JPanel {
 	 */
 	private JButton btnCrearMatriz;
 	/**
-	 * El respectivo boton que permite llenar la matriz de tamaño k*m.
+	 * El respectivo campo de texto que permite llenar la matriz de tamaño k*m.
 	 */
-	private JButton btnLlenarMatriz;
+	private JTextField textllenarMatriz;
 	/**
 	 * El respectivo boton que permite ver la respectiva matriz.
 	 */
@@ -47,9 +48,9 @@ public class PanelMatriz extends JPanel {
 		// Ajuste los bordes.
 		setLayout(new BorderLayout(10, 10));
 		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-		btnCrearMatriz = new JButton("Crear Matriz");
-		btnLlenarMatriz = new JButton("Llenar Matriz");
-		btnVerMatriz = new JButton("Ver Matriz");
+		btnCrearMatriz = new JButton("Crear Matriz.");
+		textllenarMatriz = new JTextField(5);
+		btnVerMatriz = new JButton("Ver Matriz.");
 		btnOrdenar = new JButton("Ordenar lista.");
 		comboAlgoritmo = new JComboBox<>(new String[] { "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort" });
 		comboOrdenamiento = new JComboBox<>(new String[] { "Dinero robado.", "Edad."});
@@ -67,8 +68,9 @@ public class PanelMatriz extends JPanel {
 	 * 
 	 */
 	private void agregarElementos() {
+		matriz.add(new JLabel("Cantidad:"));
+		matriz.add(textllenarMatriz);
 		matriz.add(btnCrearMatriz);
-		matriz.add(btnLlenarMatriz);
 		matriz.add(btnVerMatriz);
 		algoritmo.add(comboAlgoritmo);
 		algoritmo.add(btnOrdenar);
@@ -84,10 +86,10 @@ public class PanelMatriz extends JPanel {
 	}
 	/**
 	 * Obtenga información con respecto al botón que llena la matriz.
-	 * @return btnLlenarMatriz el respectivo botón que llena la matriz.
+	 * @return textllenarMatriz el respectivo botón que llena la matriz.
 	 */
-	public JButton getBtnLlenarMatriz() {
-		return btnLlenarMatriz;
+	public JTextField getTextLlenarMatriz() {
+		return textllenarMatriz;
 	}
 	/**
 	 * Obtenga información con respecto al botón que visualiza la matriz.
@@ -147,10 +149,10 @@ public class PanelMatriz extends JPanel {
 	}
 	/**
 	 * Modifique el botón que llena la matriz.
-	 * @param btnLlenarMatriz el botón que llena la matriz
+	 * @param textllenarMatriz el botón que llena la matriz
 	 */
-	public void setBtnLlenarMatriz(JButton btnLlenarMatriz) {
-		this.btnLlenarMatriz = btnLlenarMatriz;
+	public void setTextllenarMatriz(JTextField textllenarMatriz) {
+		this.textllenarMatriz = textllenarMatriz;
 	}
 	/**
 	 * Modifique el botón que permita ver la matriz gestionada e ordenada.

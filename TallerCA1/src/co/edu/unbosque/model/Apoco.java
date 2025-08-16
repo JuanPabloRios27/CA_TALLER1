@@ -2,6 +2,7 @@ package co.edu.unbosque.model;
 
 import java.util.List;
 
+import co.edu.unbosque.util.Matriz;
 import co.edu.unbosque.util.Ordenador;
 
 import java.lang.Math;
@@ -27,13 +28,14 @@ public class Apoco {
 	 * LLame a la función para realizar las funciones que otorga el arreglo de los políticos.
 	 */
 	private Ordenador ordenador;
-	
+	private Matriz matriz;
 	/**
 	 * Prepara las operaciones para realizar los respectivos algoritmos.
 	 * @author Juan Pablo Ríos Rodríguez.
 	 */
 	public Apoco() {
 		ordenador = new Ordenador();
+		matriz = new Matriz();
 	}
 	/**
 	 * Muestra el arreglo con respecto a los políticos.
@@ -48,11 +50,29 @@ public class Apoco {
 		return politico.toString();
 	}
 	/**
+	 * Imprime toda la matriz con respecto a los ladrones.
+	 * @author Juan Pablo Rios Rodriguez.
+	 * @return todos los ladrones registrados
+	 */
+	public String mostrarLadrones() {
+		StringBuilder ladron = new StringBuilder();
+		for(int i = 0; i < ladrones.length; i++) {
+			for(int j = 0; j < ladrones[0].length;j++) {
+				ladron.append(ladrones[i][j]);
+			}
+			ladron.append("\n");
+		}
+		return ladron.toString();
+	}
+	/**
 	 * Llame a la función para generar el arreglo con longitud n, que permita realizar la respectiva prueba.
 	 * @author Juan Pablo Ríos Rodríguez
 	 */
 	public void generarPoliticos(int n) {
 		politicosSospechosos = ordenador.genereDatos(n);
+	}
+	public void generarLadrones(int int1) {
+		ladrones = matriz.genereMatriz(int1);
 	}
 	/**
 	 * Toma el arreglo de longitud variable que representa los politicos acusados de corrupción.
@@ -96,6 +116,9 @@ public class Apoco {
 	public void setEstadisticas(List<Estadisticas> estadisticas) {
 		this.estadisticas = estadisticas;
 	}
+	
+	
+	
 	
 	
 }

@@ -53,6 +53,8 @@ public class Controller {
 		gui.getPanelPoliticos().getBtnGenerar().addActionListener(acciones());
 		gui.getPanelPoliticos().getBtnVerArreglo().addActionListener(acciones());
 		gui.getPanelPoliticos().getBtnOrdenar().addActionListener(acciones());
+		gui.getPanelMatriz().getBtnCrearMatriz().addActionListener(acciones());
+		gui.getPanelMatriz().getBtnVerMatriz().addActionListener(acciones());
 	}
 	/**
 	 * Asigna funciones de parte de cualquier componente que se encuentre en la respectiva interfaz gráfica del usuario.
@@ -66,9 +68,15 @@ public class Controller {
 					if (e.getActionCommand().equals("Generar arreglo.")) {
 						apoco.generarPoliticos(
 								Integer.parseInt(gui.getPanelPoliticos().getTxtCantidad().getText()));
-						gui.mostrarMensaje("Se ha generado la lista.\n");
+						gui.mostrarMensaje("Se ha generado el arreglo.\n");
 					}else if(e.getActionCommand().equals("Ver arreglo.")) {
 						gui.mostrarMensaje("ID \tDinero robado \tEdad \n"+apoco.mostrarPoliticos());
+					}else if(e.getActionCommand().equals("Crear Matriz.")) {
+						apoco.generarLadrones(Integer.parseInt(gui.getPanelMatriz().getTextLlenarMatriz().getText()));
+						gui.mostrarMensaje("Se ha generado la matriz.\n");
+					}else if(e.getActionCommand().equals("Ver Matriz.")) {
+						
+						gui.mostrarMensaje("ladrones generados. \n"+apoco.mostrarLadrones());
 					}else {
 						System.out.println(e);
 					}

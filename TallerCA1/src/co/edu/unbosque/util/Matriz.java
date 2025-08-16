@@ -1,5 +1,8 @@
 package co.edu.unbosque.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.edu.unbosque.model.Ladron;
 import co.edu.unbosque.model.Politico;
 
@@ -28,18 +31,34 @@ public class Matriz {
 	 * @return ladronnuevo la matriz ya generada.
 	 */
 	public Ladron[][] genereMatriz(int n) {
-		int i = n/2;
-		int a = 1;
-		while(a<n) {
-			a++;
+		int i = n, d=2;
+		List<Integer> mcm =  new ArrayList<>();
+		while(i!=1) {
+			if(i % d == 0) {
+				i = i / d;
+				mcm.add(d);
+			}else {
+				d=i;
+			}
 		}
-		System.out.println(a);
-		System.out.println(i);
-		Ladron[][] ladronnuevo = new Ladron[i][a];
-		System.out.print(ladronnuevo.length);
-		for (int x = 0; x < i ; x ++) {
-			for (int j = 0; j < a; j ++) {
-				ladronnuevo[x][j] = new Ladron(n--, (int) (Math.random()*(100000-1000)+1)+1000,(int) (int)(Math.random()*99-5));
+		int a=1, b=1;
+		Ladron[][] ladronnuevo;
+		if(mcm.size() >= 1) {
+			for(int l1 = 0; l1 < mcm.size() / 2; l1++) {
+				a = a* mcm.get(l1);
+			}
+			for(int l1 = mcm.size() / 2; l1 < mcm.size(); l1++) {
+				b = b* mcm.get(l1);
+			}
+			ladronnuevo = new Ladron[a][b];
+		}else {
+			ladronnuevo = new Ladron[0][n];
+		}
+		int id = 0;
+		for (int x = 0; x < a ; x ++) {
+			for (int j = 0; j < b; j ++) {
+				ladronnuevo[x][j] = new Ladron(id, (int) (Math.random()*(100000-1000)+1)+1000,(int) (int)(Math.random()*99-5));
+				id++;
 			}
 		}
 		return ladronnuevo;

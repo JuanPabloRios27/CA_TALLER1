@@ -28,6 +28,9 @@ public class Apoco {
 	 * LLame a la función para realizar las funciones que otorga el arreglo de los políticos.
 	 */
 	private Ordenador ordenador;
+	/**
+	 * LLame a la función para realizar los ejercicios de la propia matriz
+	 */
 	private Matriz matriz;
 	/**
 	 * Prepara las operaciones para realizar los respectivos algoritmos.
@@ -49,6 +52,14 @@ public class Apoco {
 			}
 		}else if(selectedIndex == 1) {
 			ladrones =  matriz.selectionSort(ladrones);
+			for(int i = 0; i < ladrones.length; i++) {
+				for(int j = 0; j < ladrones[0].length; j++) {
+					politico.append(ladrones[i][j].toString());
+				}
+				politico.append("\n");
+			}
+		}else if(selectedIndex == 2) {
+			ladrones =  matriz.insertionSort(ladrones);
 			for(int i = 0; i < ladrones.length; i++) {
 				for(int j = 0; j < ladrones[0].length; j++) {
 					politico.append(ladrones[i][j].toString());

@@ -3,6 +3,8 @@ package co.edu.unbosque.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.edu.unbosque.controller.Controller;
+import co.edu.unbosque.model.Estadisticas;
 import co.edu.unbosque.model.Ladron;
 import co.edu.unbosque.model.Politico;
 
@@ -12,6 +14,7 @@ import co.edu.unbosque.model.Politico;
  * @author Juan Pablo Ríos Rodríguez
  */
 public class Matriz {
+	
 	/**
 	 * Ordene la matriz de parte del algoritmo de ordenamiento bubblesort.
 	 * 
@@ -21,18 +24,23 @@ public class Matriz {
 	 *      Documentation</a>
 	 */
 	public Ladron[][] bubbleSort(Ladron[][] ladron) {
-		//Ordene la plata que se llevo por columna.
+		Estadisticas estadisticas = new Estadisticas();
+		estadisticas.setAlgoritmo("Bubble Sort.");
+		estadisticas.captureTiempo();
+		// Ordene la plata que se llevo por columna.
 		int columnas = ladron[0].length;
 		int filas = ladron.length;
 		Ladron temp;
 		for (int a = 0; a < columnas; a++) {
 			for (int i = 0; i < filas - 1; i++) {
 				for (int j = 0; j < filas - i - 1; j++) {
-					if (ladron[j][a].getDineroRobado() > ladron[j + 1][a].getDineroRobado()) {
+					if (ladron[j][a].getEdad() > ladron[j + 1][a].getEdad()) {
 						temp = ladron[j][a];
 						ladron[j][a] = ladron[j + 1][a];
 						ladron[j + 1][a] = temp;
+						estadisticas.setComparaciones(estadisticas.getComparaciones()+1);
 					}
+					estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
 				}
 			}
 		}
@@ -40,14 +48,18 @@ public class Matriz {
 		for (int a = 0; a < filas; a++) {
 			for (int i = 0; i < columnas; i++) {
 				for (int j = 0; j < columnas - i - 1; j++) {
-					if (ladron[a][j].getEdad() > ladron[a][j + 1].getEdad()) {
+					if (ladron[a][j].getDineroRobado() > ladron[a][j + 1].getDineroRobado()) {
 						temp = ladron[a][j];
 						ladron[a][j] = ladron[a][j + 1];
 						ladron[a][j + 1] = temp;
+						estadisticas.setComparaciones(estadisticas.getComparaciones()+1);
 					}
+					estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
 				}
 			}
 		}
+		estadisticas.finalizeTiempo();
+		Controller.imprimeEstadisticas(estadisticas);
 		return ladron;
 	}
 
@@ -55,65 +67,113 @@ public class Matriz {
 	 * Ordene la matriz de parte del algoritmo de ordenamiento Selectionsort.
 	 * 
 	 * @author Juan Pablo Ríos Rodríguez
+	 * @see <a href=
+	 *      "https://www.geeksforgeeks.org/dsa/selection-sort-algorithm-2/">Selection Sort
+	 *      Documentation</a>
 	 */
 	public Ladron[][] selectionSort(Ladron[][] ladron) {
+		Estadisticas estadisticas = new Estadisticas();
+		estadisticas.setAlgoritmo("Selection Sort.");
+		estadisticas.captureTiempo();
 		int columnas = ladron[0].length;
 		int filas = ladron.length;
 		Ladron temp;
-		//Ordena el dinero robado en columna.
+		// Ordena el dinero robado en columna.
 		for (int a = 0; a < columnas; a++) {
 			for (int i = 0; i < filas - 1; i++) {
 				int min_idx = i;
-				for(int j = i + 1; j < filas;j ++) {
-					if(ladron[j][a].getEdad() < ladron[min_idx][a].getEdad()) {
+				for (int j = i + 1; j < filas; j++) {
+					if (ladron[j][a].getDineroRobado() < ladron[min_idx][a].getDineroRobado()) {
 						min_idx = j;
+						estadisticas.setComparaciones(estadisticas.getComparaciones()+1);
 					}
+					estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
 				}
 				temp = ladron[i][a];
 				ladron[i][a] = ladron[min_idx][a];
 				ladron[min_idx][a] = temp;
 			}
 		}
-		//Ordena la edad en fila.
+		// Ordena la edad en fila.
 		for (int a = 0; a < filas; a++) {
 			for (int i = 0; i < columnas - 1; i++) {
 				int min_idx = i;
-				for(int j = i + 1; j < columnas;j ++) {
-					if(ladron[a][j].getDineroRobado() < ladron[a][min_idx].getDineroRobado()) {
+				for (int j = i + 1; j < columnas; j++) {
+					if (ladron[a][j].getEdad() < ladron[a][min_idx].getEdad()) {
 						min_idx = j;
+						estadisticas.setComparaciones(estadisticas.getComparaciones()+1);
 					}
+					estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
 				}
 				temp = ladron[a][i];
 				ladron[a][i] = ladron[a][min_idx];
 				ladron[a][min_idx] = temp;
 			}
 		}
+		estadisticas.finalizeTiempo();
+		Controller.imprimeEstadisticas(estadisticas);
 		return ladron;
 	}
 
 	/**
-	 * Ordene la matriz de parte del algoritmo de ordenamiento bubblesort.
-	 * 
+	 * Ordene la matriz de parte del algoritmo de ordenamiento InsertionSort.
+	 * @see <a href=
+	 *      "https://www.geeksforgeeks.org/dsa/insertion-sort-algorithm/">Insertion Sort
+	 *      Documentation</a>
 	 * @author Juan Pablo Ríos Rodríguez
 	 */
-	public Ladron[][] insertionSort() {
-		
-		return null;
+	public Ladron[][] insertionSort(Ladron[][] ladron) {
+		Estadisticas estadisticas = new Estadisticas();
+		estadisticas.setAlgoritmo("Insertion Sort.");
+		estadisticas.captureTiempo();
+		int columnas = ladron[0].length;
+		int filas = ladron.length;
+		// Ordena el dinero robado en columna.
+		for (int a = 0; a < columnas; a++) {
+			for (int i = 0; i < filas; i++) {
+				Ladron temp = ladron[i][a];
+				int j = i - 1;
+				while (j >= 0 && ladron[j][a].getDineroRobado() > temp.getDineroRobado()) {
+					ladron[j + 1][a] = ladron[j][a];
+					j = j - 1;
+					estadisticas.setComparaciones(estadisticas.getComparaciones()+1);
+				}
+				ladron[j + 1][a] = temp;
+				estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
+			}
+		}
+		// Ordena la edad en fila.
+		for (int a = 0; a < filas; a++) {
+			for (int i = 0; i < columnas; i++) {
+				Ladron temp = ladron[a][i];
+				int j = i - 1;
+				estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
+				while (j >= 0 && ladron[a][j].getEdad() > temp.getEdad()) {
+					ladron[a][j + 1] = ladron[a][j];
+					j = j - 1;
+					estadisticas.setComparaciones(estadisticas.getComparaciones()+1);
+				}
+				ladron[a][j + 1] = temp;
+			}
+		}
+		estadisticas.finalizeTiempo();
+		Controller.imprimeEstadisticas(estadisticas);
+		return ladron;
 	}
 
 	/**
-	 * Ordene la matriz de parte del algoritmo de ordenamiento bubblesort.
+	 * Ordene la matriz de parte del algoritmo de ordenamiento mergesort.
 	 * 
-	 * @author Juan Pablo Ríos Rodríguez
+	 * @author Antonio :(
 	 */
 	public Ladron[][] mergeSort() {
 		return null;
 	}
 
 	/**
-	 * Ordene la matriz de parte del algoritmo de ordenamiento bubblesort.
+	 * Ordene la matriz de parte del algoritmo de ordenamiento quicksort.
 	 * 
-	 * @author Juan Pablo Ríos Rodríguez
+	 * @author Antonio :(
 	 */
 	public Ladron[][] quickSort() {
 		return null;

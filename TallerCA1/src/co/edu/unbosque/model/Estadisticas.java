@@ -95,7 +95,7 @@ public class Estadisticas {
 		sb.append("Algoritmo: "+algoritmo+"\n");
 		sb.append("Interacciones: "+ interaciones+"\n");
 		sb.append("Comparaciones: "+comparaciones+"\n");
-		sb.append("Tiempo"+tiempo+"\n");
+		sb.append("Tiempo: "+tiempo+"\n");
 		return sb.toString();
 	}
 	public void captureTiempo() {

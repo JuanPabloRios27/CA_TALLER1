@@ -40,6 +40,7 @@ public class Controller {
 		gui.getPanelPoliticos().getBtnGenerar().addActionListener(acciones());
 		gui.getPanelPoliticos().getBtnVerArreglo().addActionListener(acciones());
 		gui.getPanelPoliticos().getBtnOrdenar().addActionListener(acciones());
+		
 		gui.getPanelMatriz().getBtnCrearMatriz().addActionListener(acciones());
 		gui.getPanelMatriz().getBtnVerMatriz().addActionListener(acciones());
 		gui.getPanelMatriz().getBtnOrdenar().addActionListener(acciones());
@@ -66,6 +67,8 @@ public class Controller {
 						gui.mostrarMensaje("Ladrones mostrados \n"+apoco.mostrarLadrones());
 					}else if(e.getActionCommand().equals("Ordenar Matriz.")) {
 						gui.mostrarMensaje("Ladrones ordenados.\n"+apoco.ordenarLadrones(gui.getPanelMatriz().getComboAlgoritmo().getSelectedIndex()));
+					}else if(e.getActionCommand().equals("Ordenar arreglo.")) {
+						gui.mostrarMensaje("Politicos ordenados.\n"+apoco.ordenarPoliticos(gui.getPanelPoliticos().getComboAlgoritmo().getSelectedIndex()));
 					}else {
 						System.out.println(e);
 					}

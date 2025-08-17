@@ -12,7 +12,7 @@ public class Ordenador {
 	public Politico[] genereDatos(int n) {
 		Politico [] politicosSospechosos = new Politico[n];
 		for(int i = 0; i < n; i++) {
-			politicosSospechosos[i] = new Politico(i,(int)(Math.random()*(100000-1000)+1)+1000,(int)(Math.random()*(99-27)+1)+27);
+			politicosSospechosos[i] = new Politico(i,(int)(Math.random()*(10000000-1000)+1)+1000,(int)(Math.random()*(99-27)+1)+27);
 		}
 		return politicosSospechosos;
 	}

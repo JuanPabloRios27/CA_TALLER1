@@ -1,21 +1,12 @@
 
 package co.edu.unbosque.controller;
 
-import java.awt.AWTError;
-import java.awt.AWTException;
-import java.awt.Event;
-import java.awt.EventQueue;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
 import javax.swing.JOptionPane;
-
-import org.w3c.dom.events.EventException;
-
 import co.edu.unbosque.model.Apoco;
-import co.edu.unbosque.model.Tiempo;
-import co.edu.unbosque.view.Gui;
+import co.edu.unbosque.model.Estadisticas;
 import co.edu.unbosque.view.Gui;
 
 /**
@@ -26,13 +17,9 @@ import co.edu.unbosque.view.Gui;
  */
 public class Controller {
 	/**
-	 * El tiempo que tomo en recorrer durante el recorrido del respectivo algoritmo
-	 */
-	private Tiempo tiempo;
-	/**
 	 * Inicializamos la interfaz grafica del usuario.
 	 */
-	private Gui gui;
+	private static Gui gui;
 	/**
 	 * Inicializamos el objeto que permite demostrar la información completa de la organización APOCO.
 	 */
@@ -90,5 +77,10 @@ public class Controller {
 			}
 		};
 	}
+	public static void imprimeEstadisticas(Estadisticas estadisticas) {
+		gui.mostrarMensaje(estadisticas.toString());
+		
+	}
+	
 
 }

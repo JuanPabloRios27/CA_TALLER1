@@ -117,7 +117,7 @@ public class Ordenador {
 			politico[j + 1] = key;
 		}
 		estadisticas.finalizeTiempo();
-		estadisticas.captureMemoria();
+		estadisticas.finaliceMemoria();
 		return politico;
 	}
 	

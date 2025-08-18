@@ -83,12 +83,15 @@ public class Apoco {
 		StringBuilder politico = new StringBuilder();
 		switch(selectedIndex) {
 		case 0:
+			matriz.inicieStats("BubbleSort");
 			ladrones = matriz.bubbleSort(ladrones);
 			break;
 		case 1:
+			matriz.inicieStats("SelectionSort");
 			ladrones = matriz.selectionSort(ladrones);
 			break;
 		case 2:
+			matriz.inicieStats("InsertionSort");
 			ladrones = matriz.insertionSort(ladrones);
 			break;
 		case 3:

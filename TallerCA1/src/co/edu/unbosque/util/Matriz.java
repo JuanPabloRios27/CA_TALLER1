@@ -74,9 +74,6 @@ public class Matriz {
 	 *      Documentation</a>
 	 */
 	public Ladron[][] selectionSort(Ladron[][] ladron) {
-		estadisticas = new Estadisticas();
-		estadisticas.setAlgoritmo("Selection Sort.");
-		estadisticas.captureTiempo();
 		int columnas = ladron[0].length;
 		int filas = ladron.length;
 		Ladron temp;
@@ -113,6 +110,7 @@ public class Matriz {
 			}
 		}
 		estadisticas.finalizeTiempo();
+		estadisticas.finaliceMemoria();
 		return ladron;
 	}
 
@@ -124,9 +122,6 @@ public class Matriz {
 	 * @author Juan Pablo Ríos Rodríguez
 	 */
 	public Ladron[][] insertionSort(Ladron[][] ladron) {
-		Estadisticas estadisticas = new Estadisticas();
-		estadisticas.setAlgoritmo("Insertion Sort.");
-		estadisticas.captureTiempo();
 		int columnas = ladron[0].length;
 		int filas = ladron.length;
 		// Ordena el dinero robado en columna.
@@ -158,6 +153,7 @@ public class Matriz {
 			}
 		}
 		estadisticas.finalizeTiempo();
+		estadisticas.finaliceMemoria();
 		return ladron;
 	}
 

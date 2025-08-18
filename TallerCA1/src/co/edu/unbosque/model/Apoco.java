@@ -44,6 +44,36 @@ public class Apoco {
 		ordenador = new Ordenador();
 		matriz = new Matriz();
 	}
+	public String ordenarPoliticos(int selectedIndex) {
+		StringBuilder politico = new StringBuilder();
+		politico.append("Longitud de ladrones: "+ politicosSospechosos.length);
+		switch(selectedIndex) {
+			case 0:
+				ordenador.inicieStats("BubbleSort");
+				politicosSospechosos = ordenador.bubbleSort(politicosSospechosos);
+				break;
+			case 1:
+				ordenador.inicieStats("SelectionSort");
+				politicosSospechosos = ordenador.selectionSort(politicosSospechosos);
+				break;
+			case 2:
+				ordenador.inicieStats("InsertionSort");
+				politicosSospechosos = ordenador.insertionSort(politicosSospechosos);
+				break;
+			case 3:
+				ordenador.inicieStats("MergeSort");
+				politicosSospechosos = ordenador.mergeSort(politicosSospechosos, 0, politicosSospechosos.length-1);
+				break;
+			case 4:
+				ordenador.inicieStats("QuickSort");
+				politicosSospechosos = ordenador.quickSort(politicosSospechosos, 0, politicosSospechosos.length-1);
+				break;
+			default:
+				break;
+		}
+		politico.append(ordenador.getEstadisticas().toString()+"\n");
+		return politico.toString();
+	}
 	/**
 	 * Ordene los ladrones de acuerdo con el algoritmo de ordenamiento que ha seleccionado.
 	 * @param selectedIndex El algoritmo de ordenamiento.
@@ -161,32 +191,6 @@ public class Apoco {
 		this.ladrones = ladrones;
 	}
 
-	public String ordenarPoliticos(int selectedIndex) {
-		StringBuilder politico = new StringBuilder();
-		switch(selectedIndex) {
-			case 0:
-				politicosSospechosos = ordenador.bubbleSort(politicosSospechosos);
-				break;
-			case 1:
-				politicosSospechosos = ordenador.selectionSort(politicosSospechosos);
-				break;
-			case 2:
-				politicosSospechosos = ordenador.insertionSort(politicosSospechosos);
-				break;
-			case 3:
-				ordenador.inicieStats("MergeSort");
-				politicosSospechosos = ordenador.mergeSort(politicosSospechosos, 0, politicosSospechosos.length-1);
-				break;
-			case 4:
-				ordenador.inicieStats("QuickSort");
-				politicosSospechosos = ordenador.quickSort(politicosSospechosos, 0, politicosSospechosos.length-1);
-				break;
-			default:
-				break;
-		}
-		politico.append(ordenador.getEstadisticas().toString()+"\n");
-		politico.append("Longitud de ladrones: "+ politicosSospechosos.length);
-		return politico.toString();
-	}
+	
 
 }

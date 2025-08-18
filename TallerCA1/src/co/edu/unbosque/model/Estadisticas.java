@@ -6,11 +6,12 @@ package co.edu.unbosque.model;
  * @author Antonio
  */
 public class Estadisticas {
+	Runtime runtime = Runtime.getRuntime();
 	/**
 	 * El tiempo total en capturar el tiempo.
 	 */
 	private long tiempo;
-	
+	private long memoriaUsada;
 	/**
 	 * Inicio del respectivo algoritmo al ejecutarse.
 	 */
@@ -96,16 +97,24 @@ public class Estadisticas {
 		sb.append("Interacciones: "+ interaciones+"\n");
 		sb.append("Comparaciones: "+comparaciones+"\n");
 		sb.append("Tiempo: "+tiempo+"\n");
+		sb.append("Memoria usada: "+memoriaUsada+"\n");
 		return sb.toString();
 	}
 	public void captureTiempo() {
 		inicio = System.nanoTime();
 	}
+	public void captureMemoria() {
+		runtime.gc();
+	}
+	public void finaliceMemoria() {
+		memoriaUsada = runtime.totalMemory()-runtime.freeMemory(); 
+	}
 	public void finalizeTiempo() {
 		fin = System.nanoTime();
 		tiempo = fin - inicio;
-		
 	}
+
+	
 	
 	
 }

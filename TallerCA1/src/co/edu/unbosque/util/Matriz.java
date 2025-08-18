@@ -28,6 +28,7 @@ public class Matriz {
 		estadisticas = new Estadisticas();
 		estadisticas.setAlgoritmo("Bubble Sort.");
 		estadisticas.captureTiempo();
+		estadisticas.captureMemoria();
 		// Ordene la plata que se llevo por columna.
 		int columnas = ladron[0].length;
 		int filas = ladron.length;
@@ -59,6 +60,7 @@ public class Matriz {
 				}
 			}
 		}
+		estadisticas.finaliceMemoria();
 		estadisticas.finalizeTiempo();
 		return ladron;
 	}

@@ -21,9 +21,6 @@ public class Ordenador {
 	}
 	
 	public Politico[] bubbleSort(Politico[] politicos) {
-		estadisticas = new Estadisticas();
-		estadisticas.setAlgoritmo("BubbleSort");
-		estadisticas.captureTiempo();
 		Politico temp;
 		for(int i = 0; i < politicos.length - 1; i++) {
 			for(int j = 0; j < politicos.length - i -1 ; j++) {
@@ -37,13 +34,11 @@ public class Ordenador {
 			}
 		}
 		estadisticas.finalizeTiempo();
+		estadisticas.finaliceMemoria();
 		return politicos;
 	}
 	
 	public Politico[] selectionSort(Politico[] politico) {
-		estadisticas = new Estadisticas();
-		estadisticas.setAlgoritmo("InsertionSort");
-		estadisticas.captureTiempo();
 		int n = politico.length;
 		for (int i = 0; i < n - 1; i++) {
 			int min_idx = i;
@@ -61,6 +56,7 @@ public class Ordenador {
 			}
 		}
 		estadisticas.finalizeTiempo();
+		estadisticas.finaliceMemoria();
 		return politico;
 	}
 	public void merge(Politico[] politico, int left, int mid, int right) {
@@ -103,9 +99,6 @@ public class Ordenador {
 	    }
 	}
 	public Politico[] insertionSort(Politico[] politico) {
-		estadisticas = new Estadisticas();
-		estadisticas.setAlgoritmo("InsertionSort");
-		estadisticas.captureTiempo();
 		int n = politico.length;
 		for (int i = 1; i < n; i++) {
 			Politico key = politico[i];
@@ -124,6 +117,7 @@ public class Ordenador {
 			politico[j + 1] = key;
 		}
 		estadisticas.finalizeTiempo();
+		estadisticas.captureMemoria();
 		return politico;
 	}
 	
@@ -135,6 +129,7 @@ public class Ordenador {
 			merge(politico, left, mid, right);
 		}
 		estadisticas.finalizeTiempo();
+		estadisticas.finaliceMemoria();
 		return politico;
 	}
 	/**
@@ -152,6 +147,7 @@ public class Ordenador {
 			quickSort(politico, pi+1, right);
 		}
 		estadisticas.finalizeTiempo();
+		estadisticas.finaliceMemoria();
 		return politico;
 	}
 	/**
@@ -200,6 +196,7 @@ public class Ordenador {
 		estadisticas = new Estadisticas();
 		estadisticas.setAlgoritmo(string);
 		estadisticas.captureTiempo();
+		estadisticas.captureMemoria();
 	}
 	
 }

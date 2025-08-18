@@ -19,7 +19,7 @@ public class Controller {
 	/**
 	 * Inicializamos la interfaz grafica del usuario.
 	 */
-	private static Gui gui;
+	private  Gui gui;
 	/**
 	 * Inicializamos el objeto que permite demostrar la información completa de la organización APOCO.
 	 */
@@ -74,15 +74,12 @@ public class Controller {
 					}
 				}catch(NullPointerException e1) {
 					JOptionPane.showMessageDialog(null, "No has llenado el respectivo elemento.");
+					System.out.println(e1.getMessage());
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Entrada inválida.");
 				}
 			}
 		};
-	}
-	public static void imprimeEstadisticas(Estadisticas estadisticas) {
-		gui.mostrarMensaje(estadisticas.toString());
-		
 	}
 	
 

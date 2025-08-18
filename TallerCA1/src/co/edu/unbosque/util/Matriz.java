@@ -15,6 +15,7 @@ import co.edu.unbosque.model.Politico;
  */
 public class Matriz {
 	
+	private Estadisticas estadisticas;
 	/**
 	 * Ordene la matriz de parte del algoritmo de ordenamiento bubblesort.
 	 * 
@@ -24,7 +25,7 @@ public class Matriz {
 	 *      Documentation</a>
 	 */
 	public Ladron[][] bubbleSort(Ladron[][] ladron) {
-		Estadisticas estadisticas = new Estadisticas();
+		estadisticas = new Estadisticas();
 		estadisticas.setAlgoritmo("Bubble Sort.");
 		estadisticas.captureTiempo();
 		// Ordene la plata que se llevo por columna.
@@ -59,7 +60,6 @@ public class Matriz {
 			}
 		}
 		estadisticas.finalizeTiempo();
-		Controller.imprimeEstadisticas(estadisticas);
 		return ladron;
 	}
 
@@ -72,7 +72,7 @@ public class Matriz {
 	 *      Documentation</a>
 	 */
 	public Ladron[][] selectionSort(Ladron[][] ladron) {
-		Estadisticas estadisticas = new Estadisticas();
+		estadisticas = new Estadisticas();
 		estadisticas.setAlgoritmo("Selection Sort.");
 		estadisticas.captureTiempo();
 		int columnas = ladron[0].length;
@@ -111,7 +111,6 @@ public class Matriz {
 			}
 		}
 		estadisticas.finalizeTiempo();
-		Controller.imprimeEstadisticas(estadisticas);
 		return ladron;
 	}
 
@@ -157,28 +156,10 @@ public class Matriz {
 			}
 		}
 		estadisticas.finalizeTiempo();
-		Controller.imprimeEstadisticas(estadisticas);
 		return ladron;
 	}
 
-	/**
-	 * Ordene la matriz de parte del algoritmo de ordenamiento mergesort.
-	 * 
-	 * @author Antonio :(
-	 */
-	public Ladron[][] mergeSort() {
-		return null;
-	}
-
-	/**
-	 * Ordene la matriz de parte del algoritmo de ordenamiento quicksort.
-	 * 
-	 * @author Antonio :(
-	 */
-	public Ladron[][] quickSort() {
-		return null;
-	}
-
+	
 	/**
 	 * Genere la matriz con respecto a los ladrones.
 	 * 
@@ -220,5 +201,175 @@ public class Matriz {
 		}
 		return ladronnuevo;
 	}
+	/**
+	 * Ordene la matriz de parte del algoritmo de ordenamiento mergesort.
+	 *  @see <a href=
+	 *  https://www.geeksforgeeks.org/dsa/merge-sort/</a>
+	 *  @see <a href=
+	 *   https://www.geeksforgeeks.org/dsa/quick-sort-vs-merge-sort/</a>
+	 */
+	public Ladron[][] mergeSort(Ladron[][] ladron) {
+	    int filas = ladron.length;
+	    int columnas = ladron[0].length;
+	    
+	    // Primero ordenamos por edad en columnas (vertical)
+	    for (int col = 0; col < columnas; col++) {
+	        Ladron[] columna = new Ladron[filas];
+	        for (int fila = 0; fila < filas; fila++) {
+	            columna[fila] = ladron[fila][col];
+	        }
+	        mergeSortArray(columna, 0, filas-1, true, estadisticas);
+	        for (int fila = 0; fila < filas; fila++) {
+	            ladron[fila][col] = columna[fila];
+	        }
+	    }
+	    
+	    // Luego ordenamos por dinero robado en filas (horizontal)
+	    for (int fila = 0; fila < filas; fila++) {
+	        mergeSortArray(ladron[fila], 0, columnas-1, false, estadisticas);
+	    }
+	    
+	    estadisticas.finalizeTiempo();
+	    return ladron;
+	}
 
+	private void mergeSortArray(Ladron[] arr, int l, int r, boolean porEdad, Estadisticas estadisticas) {
+	    if (l < r) {
+	        int m = l + (r - l) / 2;
+	        
+	        mergeSortArray(arr, l, m, porEdad, estadisticas);
+	        mergeSortArray(arr, m + 1, r, porEdad, estadisticas);
+	        
+	        merge(arr, l, m, r, porEdad, estadisticas);
+	    }
+	}
+
+	private void merge(Ladron[] arr, int l, int m, int r, boolean porEdad, Estadisticas estadisticas) {
+	    int n1 = m - l + 1;
+	    int n2 = r - m;
+
+	    Ladron[] L = new Ladron[n1];
+	    Ladron[] R = new Ladron[n2];
+
+	    for (int i = 0; i < n1; ++i) {
+	        L[i] = arr[l + i];
+	    }
+	    for (int j = 0; j < n2; ++j) {
+	        R[j] = arr[m + 1 + j];
+	    }
+
+	    int i = 0, j = 0;
+	    int k = l;
+	    
+	    while (i < n1 && j < n2) {
+	        estadisticas.setComparaciones(estadisticas.getComparaciones() + 1);
+	        if ((porEdad && L[i].getEdad() <= R[j].getEdad()) || 
+	            (!porEdad && L[i].getDineroRobado() <= R[j].getDineroRobado())) {
+	            arr[k] = L[i];
+	            i++;
+	        } else {
+	            arr[k] = R[j];
+	            j++;
+	        }
+	        estadisticas.setInteraciones(estadisticas.getInteraciones() + 1);
+	        k++;
+	    }
+
+	    while (i < n1) {
+	        arr[k] = L[i];
+	        i++;
+	        k++;
+	        estadisticas.setInteraciones(estadisticas.getInteraciones() + 1);
+	    }
+
+	    while (j < n2) {
+	        arr[k] = R[j];
+	        j++;
+	        k++;
+	        estadisticas.setInteraciones(estadisticas.getInteraciones() + 1);
+	    }
+	}
+
+	/**
+	 * Ordene la matriz usando el algoritmo QuickSort.
+	 * 	@see <a href=
+	 *   https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/</a>
+	 *  @see <a href=
+	 *   https://www.geeksforgeeks.org/dsa/quick-sort-vs-merge-sort/</a>
+	 */
+	public Ladron[][] quickSort(Ladron[][] ladron) {
+	    int filas = ladron.length;
+	    int columnas = ladron[0].length;
+	    
+	    // Primero ordenamos por edad en columnas (vertical)
+	    for (int col = 0; col < columnas; col++) {
+	        Ladron[] columna = new Ladron[filas];
+	        for (int fila = 0; fila < filas; fila++) {
+	            columna[fila] = ladron[fila][col];
+	        }
+	        quickSortArray(columna, 0, filas-1, true, estadisticas);
+	        for (int fila = 0; fila < filas; fila++) {
+	            ladron[fila][col] = columna[fila];
+	        }
+	    }
+	    
+	    // Luego ordenamos por dinero robado en filas (horizontal)
+	    for (int fila = 0; fila < filas; fila++) {
+	        quickSortArray(ladron[fila], 0, columnas-1, false, estadisticas);
+	    }
+	    
+	    estadisticas.finalizeTiempo();
+	    return ladron;
+	}
+
+	private void quickSortArray(Ladron[] arr, int low, int high, boolean porEdad, Estadisticas estadisticas) {
+	    if (low < high) {
+	        int pi = partition(arr, low, high, porEdad, estadisticas);
+	        
+	        quickSortArray(arr, low, pi - 1, porEdad, estadisticas);
+	        quickSortArray(arr, pi + 1, high, porEdad, estadisticas);
+	    }
+	}
+
+	private int partition(Ladron[] arr, int low, int high, boolean porEdad, Estadisticas estadisticas) {
+	    Ladron pivot = arr[high];
+	    int i = low - 1;
+	    
+	    for (int j = low; j < high; j++) {
+	        estadisticas.setComparaciones(estadisticas.getComparaciones() + 1);
+	        if ((porEdad && arr[j].getEdad() < pivot.getEdad()) || 
+	            (!porEdad && arr[j].getDineroRobado() < pivot.getDineroRobado())) {
+	            i++;
+	            
+	            // Swap arr[i] and arr[j]
+	            Ladron temp = arr[i];
+	            arr[i] = arr[j];
+	            arr[j] = temp;
+	        }
+	        estadisticas.setInteraciones(estadisticas.getInteraciones() + 1);
+	    }
+	    
+	    // Swap arr[i+1] and arr[high] (pivot)
+	    Ladron temp = arr[i + 1];
+	    arr[i + 1] = arr[high];
+	    arr[high] = temp;
+	    estadisticas.setInteraciones(estadisticas.getInteraciones() + 1);
+	    return i + 1;
+	}
+
+	public Estadisticas getEstadisticas() {
+		return estadisticas;
+	}
+
+	public void setEstadisticas(Estadisticas estadisticas) {
+		this.estadisticas = estadisticas;
+	}
+
+	public void inicieStats(String string) {
+		estadisticas = new Estadisticas();
+	    estadisticas.setAlgoritmo("Quick Sort");
+	    estadisticas.captureTiempo();
+	}
+	
+	
 }

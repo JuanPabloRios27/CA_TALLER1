@@ -26,11 +26,11 @@ public class Estadisticas {
 	/**
 	 * Número de interacciones que el algoritmo ha llevado a cabo.
 	 */
-	private int interaciones;
+	private long interaciones;
 	/**
 	 * Número de comparaciones que el algoritmo ha llevado a cabo.
 	 */
-	private int comparaciones;
+	private long comparaciones;
 	/**
 	 * Tiempo de ejecución que el algoritmo necesito para finalizar su función.
 	 */
@@ -55,10 +55,10 @@ public class Estadisticas {
 	public String getAlgoritmo() {
 		return algoritmo;
 	}
-	public int getInteraciones() {
+	public long getInteraciones() {
 		return interaciones;
 	}
-	public int getComparaciones() {
+	public long getComparaciones() {
 		return comparaciones;
 	}
 	public long getTiempoEjecucion() {
@@ -76,11 +76,11 @@ public class Estadisticas {
 	public void setAlgoritmo(String algoritmo) {
 		this.algoritmo = algoritmo;
 	}
-	public void setInteraciones(int interaciones) {
-		this.interaciones = interaciones;
+	public void setInteraciones(long l) {
+		this.interaciones = l;
 	}
-	public void setComparaciones(int comparaciones) {
-		this.comparaciones = comparaciones;
+	public void setComparaciones(long l) {
+		this.comparaciones = l;
 	}
 	public void setTiempoEjecucion(long tiempoEjecucion) {
 		this.tiempoEjecucion = tiempoEjecucion;

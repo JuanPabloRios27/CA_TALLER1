@@ -7,7 +7,7 @@ import co.edu.unbosque.model.Politico;
 import co.edu.unbosque.view.Gui;
 
 public class Ordenador {
-	Estadisticas estadisticas = new Estadisticas();
+	private Estadisticas estadisticas = new Estadisticas();
 	/**
 	 * Permite generar datos con respecto a la matriz.
 	 * @author Juan Pablo Ríos Rodríguez.
@@ -21,8 +21,8 @@ public class Ordenador {
 	}
 	
 	public Politico[] bubbleSort(Politico[] politicos) {
-		Estadisticas estadisticas = new Estadisticas();
-		estadisticas.setAlgoritmo("InsertionSort");
+		estadisticas = new Estadisticas();
+		estadisticas.setAlgoritmo("BubbleSort");
 		estadisticas.captureTiempo();
 		Politico temp;
 		for(int i = 0; i < politicos.length - 1; i++) {
@@ -32,17 +32,16 @@ public class Ordenador {
 					temp = politicos[j];
 					politicos[j] = politicos[j +1];
 					politicos[j+1] = temp;
-					estadisticas.setInteraciones(estadisticas.getInteraciones());
+					estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
 				}
 			}
 		}
 		estadisticas.finalizeTiempo();
-		Controller.imprimeEstadisticas(estadisticas);
 		return politicos;
 	}
 	
 	public Politico[] selectionSort(Politico[] politico) {
-		Estadisticas estadisticas = new Estadisticas();
+		estadisticas = new Estadisticas();
 		estadisticas.setAlgoritmo("InsertionSort");
 		estadisticas.captureTiempo();
 		int n = politico.length;
@@ -62,7 +61,6 @@ public class Ordenador {
 			}
 		}
 		estadisticas.finalizeTiempo();
-		Controller.imprimeEstadisticas(estadisticas);
 		return politico;
 	}
 	public void merge(Politico[] politico, int left, int mid, int right) {
@@ -105,7 +103,7 @@ public class Ordenador {
 	    }
 	}
 	public Politico[] insertionSort(Politico[] politico) {
-		Estadisticas estadisticas = new Estadisticas();
+		estadisticas = new Estadisticas();
 		estadisticas.setAlgoritmo("InsertionSort");
 		estadisticas.captureTiempo();
 		int n = politico.length;
@@ -115,6 +113,7 @@ public class Ordenador {
 			while(j>=0) {
 				estadisticas.setComparaciones(estadisticas.getComparaciones()+1);
 				if(politico[j].getDineroRobado() > key.getDineroRobado()) {
+					estadisticas.setComparaciones(estadisticas.getComparaciones()+1);
 					politico[j + 1] = politico[j];
 					estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
 					j--;
@@ -125,14 +124,10 @@ public class Ordenador {
 			politico[j + 1] = key;
 		}
 		estadisticas.finalizeTiempo();
-		Controller.imprimeEstadisticas(estadisticas);
 		return politico;
 	}
 	
 	public Politico[] mergeSort(Politico[] politico, int left, int right) {
-		estadisticas = new Estadisticas();
-		estadisticas.setAlgoritmo("InsertionSort");
-		estadisticas.captureTiempo();
 		if(left < right) {
 			int mid = left + (right - left) / 2;
 			mergeSort(politico, left, mid);
@@ -140,28 +135,23 @@ public class Ordenador {
 			merge(politico, left, mid, right);
 		}
 		estadisticas.finalizeTiempo();
-		Controller.imprimeEstadisticas(estadisticas);
 		return politico;
 	}
 	/**
 	 * Implementación del respectivo QuickSort.
 	 * Se implemento usando la partición de Lomuto.
 	 * @param politico
-	 * @param left
-	 * @param right
-	 * @return
+	 * @param left la posición inicial del arreglo
+	 * @param right la posición final del arreglo
+	 * @return politico El arreglo ya ordenado
 	 */
 	public Politico[] quickSort(Politico[] politico, int left, int right) {
-		estadisticas = new Estadisticas();
-		estadisticas.setAlgoritmo("InsertionSort");
-		estadisticas.captureTiempo();
 		if(left < right) {
 			int pi = partition(politico, left, right);
 			quickSort(politico, left, pi -1);
 			quickSort(politico, pi+1, right);
 		}
 		estadisticas.finalizeTiempo();
-		Controller.imprimeEstadisticas(estadisticas);
 		return politico;
 	}
 	/**
@@ -175,12 +165,15 @@ public class Ordenador {
 		Politico pivot = politico[right];
 		int i = left -1;
 		for(int j = left; j <= right -1; j++) {
+			estadisticas.setComparaciones(estadisticas.getComparaciones()+1);
 			if(politico[j].getDineroRobado() < pivot.getDineroRobado()) {
 				i++;
 				swap(politico, i, j);
+				estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
 			}
 		}
 		swap(politico, i+1, right);
+		estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
 		return i + 1;
 	}
 	/**
@@ -193,6 +186,20 @@ public class Ordenador {
 		Politico temp = politico[i];
 		politico[i] = politico[j];
 		politico[j] = temp;
+	}
+
+	public Estadisticas getEstadisticas() {
+		return estadisticas;
+	}
+
+	public void setEstadisticas(Estadisticas estadisticas) {
+		this.estadisticas = estadisticas;
+	}
+
+	public void inicieStats(String string) {
+		estadisticas = new Estadisticas();
+		estadisticas.setAlgoritmo(string);
+		estadisticas.captureTiempo();
 	}
 	
 }

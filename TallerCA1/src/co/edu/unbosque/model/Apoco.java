@@ -44,34 +44,37 @@ public class Apoco {
 		ordenador = new Ordenador();
 		matriz = new Matriz();
 	}
-
+	/**
+	 * Ordene los ladrones de acuerdo con el algoritmo de ordenamiento que ha seleccionado.
+	 * @param selectedIndex El algoritmo de ordenamiento.
+	 * @return La cantidad de ladrones que ordeno.
+	 */
 	public String ordenarLadrones(int selectedIndex) {
 		StringBuilder politico = new StringBuilder();
-		if (selectedIndex == 0) {
+		switch(selectedIndex) {
+		case 0:
 			ladrones = matriz.bubbleSort(ladrones);
-			for (int i = 0; i < ladrones.length; i++) {
-				for (int j = 0; j < ladrones[0].length; j++) {
-					politico.append(ladrones[i][j].toString());
-				}
-				politico.append("\n");
-			}
-		} else if (selectedIndex == 1) {
+			break;
+		case 1:
 			ladrones = matriz.selectionSort(ladrones);
-			for (int i = 0; i < ladrones.length; i++) {
-				for (int j = 0; j < ladrones[0].length; j++) {
-					politico.append(ladrones[i][j].toString());
-				}
-				politico.append("\n");
-			}
-		} else if (selectedIndex == 2) {
+			break;
+		case 2:
 			ladrones = matriz.insertionSort(ladrones);
-			for (int i = 0; i < ladrones.length; i++) {
-				for (int j = 0; j < ladrones[0].length; j++) {
-					politico.append(ladrones[i][j].toString());
-				}
-				politico.append("\n");
-			}
+			break;
+		case 3:
+			matriz.inicieStats("MergeSort");
+			ladrones = matriz.mergeSort(ladrones);
+			break;
+		case 4:
+			matriz.inicieStats("QuickSort");
+			ladrones = matriz.quickSort(ladrones);
+			break;
+		default:
+			break;
 		}
+		politico.append(matriz.getEstadisticas().toString());
+		politico.append("\nNúmero de columnas: "+ ladrones.length+"\n");
+		politico.append("Número de filas: "+ ladrones[0].length+"\n");
 		return politico.toString();
 	}
 
@@ -160,36 +163,29 @@ public class Apoco {
 
 	public String ordenarPoliticos(int selectedIndex) {
 		StringBuilder politico = new StringBuilder();
-		if (selectedIndex == 0) {
-			politicosSospechosos = ordenador.bubbleSort(politicosSospechosos);
-			for (int i = 0; i < politicosSospechosos.length; i++) {
-				politico.append(politicosSospechosos[i].toString());
-			}
-		} else if (selectedIndex == 1) {
-			politicosSospechosos = ordenador.selectionSort(politicosSospechosos);
-			for (int i = 0; i < politicosSospechosos.length; i++) {
-				politico.append(politicosSospechosos[i].toString());
-			}
-			return politico.toString();
-		} else if (selectedIndex == 2) {
-			politicosSospechosos = ordenador.insertionSort(politicosSospechosos);
-			for (int i = 0; i < politicosSospechosos.length; i++) {
-				politico.append(politicosSospechosos[i].toString());
-			}
-			return politico.toString();
-		} else if (selectedIndex == 3) {
-			politicosSospechosos = ordenador.mergeSort(politicosSospechosos, 0, politicosSospechosos.length-1);
-			for (int i = 0; i < politicosSospechosos.length; i++) {
-				politico.append(politicosSospechosos[i].toString());
-			}
-			return politico.toString();
-		}else if (selectedIndex == 4) {
-			politicosSospechosos = ordenador.quickSort(politicosSospechosos, 0, politicosSospechosos.length-1);
-			for (int i = 0; i < politicosSospechosos.length; i++) {
-				politico.append(politicosSospechosos[i].toString());
-			}
-			return politico.toString();
+		switch(selectedIndex) {
+			case 0:
+				politicosSospechosos = ordenador.bubbleSort(politicosSospechosos);
+				break;
+			case 1:
+				politicosSospechosos = ordenador.selectionSort(politicosSospechosos);
+				break;
+			case 2:
+				politicosSospechosos = ordenador.insertionSort(politicosSospechosos);
+				break;
+			case 3:
+				ordenador.inicieStats("MergeSort");
+				politicosSospechosos = ordenador.mergeSort(politicosSospechosos, 0, politicosSospechosos.length-1);
+				break;
+			case 4:
+				ordenador.inicieStats("QuickSort");
+				politicosSospechosos = ordenador.quickSort(politicosSospechosos, 0, politicosSospechosos.length-1);
+				break;
+			default:
+				break;
 		}
+		politico.append(ordenador.getEstadisticas().toString()+"\n");
+		politico.append("Longitud de ladrones: "+ politicosSospechosos.length);
 		return politico.toString();
 	}
 

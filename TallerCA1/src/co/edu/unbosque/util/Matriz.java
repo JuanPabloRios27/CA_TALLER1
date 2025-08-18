@@ -226,7 +226,7 @@ public class Matriz {
 	    for (int fila = 0; fila < filas; fila++) {
 	        mergeSortArray(ladron[fila], 0, columnas-1, false, estadisticas);
 	    }
-	    
+	    estadisticas.finaliceMemoria();
 	    estadisticas.finalizeTiempo();
 	    return ladron;
 	}
@@ -315,7 +315,7 @@ public class Matriz {
 	    for (int fila = 0; fila < filas; fila++) {
 	        quickSortArray(ladron[fila], 0, columnas-1, false, estadisticas);
 	    }
-	    
+	    estadisticas.finaliceMemoria();
 	    estadisticas.finalizeTiempo();
 	    return ladron;
 	}

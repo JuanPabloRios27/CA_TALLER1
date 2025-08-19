@@ -81,18 +81,24 @@ public class Gui extends JFrame {
 	public void setPanelMatriz(PanelMatriz panelMatriz) {
 		this.panelMatriz = panelMatriz;
 	}
+	/**
+	 * Este panel permite ver la salida con respecto con los algoritmos de ordenamiento.
+	 * @return panelConsole 
+	 */
 	public PanelConsole getPanelConsole() {
 		return panelConsole;
 	}
+	/**
+	 * El panel  que reubica todos los componentes principales.
+	 * @return panelPrincipal el panel que reubica los compontente
+	 */
 	public JPanel getPanelPrincipal() {
 		return panelPrincipal;
 	}
-	public void setPanelConsole(PanelConsole panelConsole) {
-		this.panelConsole = panelConsole;
-	}
-	public void setPanelPrincipal(JPanel panelPrincipal) {
-		this.panelPrincipal = panelPrincipal;
-	}
+	/**
+	 * Muestra el mensaje a travez del panelConsole, logrando ver los resultados a través del GUI.
+	 * @param text el texto que debe imprimirse en pantalla.
+	 */
 	public void mostrarMensaje(String text) {
 		getPanelConsole().getAreaSalida().setText(getPanelConsole().getAreaSalida().getText()+text);
 	}

@@ -216,7 +216,7 @@ public class Matriz {
 	        for (int fila = 0; fila < filas; fila++) {
 	            columna[fila] = ladron[fila][col];
 	        }
-	        mergeSortArray(columna, 0, filas-1, true, estadisticas);
+	        mergeSortArray(columna, 0, filas-1, true);
 	        for (int fila = 0; fila < filas; fila++) {
 	            ladron[fila][col] = columna[fila];
 	        }
@@ -224,25 +224,32 @@ public class Matriz {
 	    
 	    // Luego ordenamos por dinero robado en filas (horizontal)
 	    for (int fila = 0; fila < filas; fila++) {
-	        mergeSortArray(ladron[fila], 0, columnas-1, false, estadisticas);
+	        mergeSortArray(ladron[fila], 0, columnas-1, false);
 	    }
 	    estadisticas.finaliceMemoria();
 	    estadisticas.finalizeTiempo();
 	    return ladron;
 	}
 
-	private void mergeSortArray(Ladron[] arr, int l, int r, boolean porEdad, Estadisticas estadisticas) {
+	private void mergeSortArray(Ladron[] arr, int l, int r, boolean porEdad) {
 	    if (l < r) {
 	        int m = l + (r - l) / 2;
 	        
-	        mergeSortArray(arr, l, m, porEdad, estadisticas);
-	        mergeSortArray(arr, m + 1, r, porEdad, estadisticas);
+	        mergeSortArray(arr, l, m, porEdad);
+	        mergeSortArray(arr, m + 1, r, porEdad);
 	        
-	        merge(arr, l, m, r, porEdad, estadisticas);
+	        merge(arr, l, m, r, porEdad);
 	    }
 	}
-
-	private void merge(Ladron[] arr, int l, int m, int r, boolean porEdad, Estadisticas estadisticas) {
+	/**
+	 * 
+	 * @param arr
+	 * @param l el elemento que se encuentra en el lado izquierdo
+	 * @param m el elemento que se encuentra en el lado derecho.
+	 * @param r la mitad de esos dos arreglos.
+	 * @param porEdad el elemento boolean que identifica si se debe ordenar. 
+	 */
+	private void merge(Ladron[] arr, int l, int m, int r, boolean porEdad) {
 	    int n1 = m - l + 1;
 	    int n2 = r - m;
 
@@ -310,7 +317,6 @@ public class Matriz {
 	            ladron[fila][col] = columna[fila];
 	        }
 	    }
-	    
 	    // Luego ordenamos por dinero robado en filas (horizontal)
 	    for (int fila = 0; fila < filas; fila++) {
 	        quickSortArray(ladron[fila], 0, columnas-1, false, estadisticas);
@@ -354,18 +360,29 @@ public class Matriz {
 	    estadisticas.setInteraciones(estadisticas.getInteraciones() + 1);
 	    return i + 1;
 	}
-
+	/**
+	 * Consulte los resultados con respecto al algoritmo
+	 * @return estadisticas las estadisticas a modificar.
+	 */
 	public Estadisticas getEstadisticas() {
 		return estadisticas;
 	}
-
+	/**
+	 * 
+	 * Ajusta las propiedades del objeto estadisticas
+	 * @param estadisticas el objeto a modificar.
+	 */
 	public void setEstadisticas(Estadisticas estadisticas) {
 		this.estadisticas = estadisticas;
 	}
-
+	/**
+	 * Comience a capturar información con respecto al algoritmo, siendo asi el tipo de ordenamiento, 
+	 * las comparaciones, las interacciones, el tiempo, etc.
+	 * @param string
+	 */
 	public void inicieStats(String string) {
 		estadisticas = new Estadisticas();
-	    estadisticas.setAlgoritmo("Quick Sort");
+	    estadisticas.setAlgoritmo(string);
 	    estadisticas.captureTiempo();
 	}
 	

@@ -13,7 +13,6 @@ import co.edu.unbosque.view.Gui;
  * Este es el paquete controller. Aca se realizan las siguientes configuraciones
  * entorno al programa.
  * 
- * @author Juan Pablo Ríos Rodríguez.
  */
 public class Controller {
 	/**
@@ -33,8 +32,7 @@ public class Controller {
 		asignarOyentes();
 	}
 	/**
-	 * Se prepara para empezar a escuchar sus respecticos componentes.
-	 * @author Juan Pablo Ríos Rodríguez y Alejandro  
+	 * Se prepara para empezar a escuchar sus respecticos componentes. 
 	 */
 	private void asignarOyentes() {
 		gui.getPanelPoliticos().getBtnGenerar().addActionListener(acciones());
@@ -47,7 +45,6 @@ public class Controller {
 	}
 	/**
 	 * Asigna funciones de parte de cualquier componente que se encuentre en la respectiva interfaz gráfica del usuario.
-	 * @author Juan Pablo Ríos Rodríguez y Alejandro  
 	 */
 	private ActionListener acciones() {
 		return new ActionListener() {

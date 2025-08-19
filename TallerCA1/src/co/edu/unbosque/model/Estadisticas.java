@@ -3,7 +3,6 @@ package co.edu.unbosque.model;
 /**
  * Este objeto ayuda a proporcionar información  
  * acerca de los respectivos algoritmos incluyendo sus resultados que se llevaron a cabo.
- * @author Antonio
  */
 public class Estadisticas {
 	Runtime runtime = Runtime.getRuntime();
@@ -43,56 +42,50 @@ public class Estadisticas {
 		this.interaciones = 0;
 		this.comparaciones = 0;
 	}
-	
-	public long getTiempo() {
-		return tiempo;
-	}
-	public long getInicio() {
-		return inicio;
-	}
-	public long getFin() {
-		return fin;
-	}
-	public String getAlgoritmo() {
-		return algoritmo;
-	}
+	/**
+	 * Obtenga información con respecto a las interacciones.
+	 * @return
+	 */
 	public long getInteraciones() {
 		return interaciones;
 	}
+	/**
+	 * Obtenga información con respecto a las comparaciones.
+	 * @return el número de comparaciones.
+	 */
 	public long getComparaciones() {
 		return comparaciones;
 	}
-	public long getTiempoEjecucion() {
-		return tiempoEjecucion;
-	}
-	public void setTiempo(long tiempo) {
-		this.tiempo = tiempo;
-	}
-	public void setInicio(long inicio) {
-		this.inicio = inicio;
-	}
-	public void setFin(long fin) {
-		this.fin = fin;
-	}
+	
+	/**
+	 * Especifique el tipo de algoritmo
+	 * @param algoritmo el tipo de algoritmo de ordenamiento a especificar.
+	 */
 	public void setAlgoritmo(String algoritmo) {
 		this.algoritmo = algoritmo;
 	}
+	/**
+	 * Modifica o agrega comparaciones.
+	 * @param l el número de comparaciones a modificar.
+	 */
 	public void setInteraciones(long l) {
 		this.interaciones = l;
 	}
+	/**
+	 * Modifica o agrega comparaciones.
+	 * @param l el número de comparaciones a modificar.
+	 */
 	public void setComparaciones(long l) {
 		this.comparaciones = l;
 	}
-	public void setTiempoEjecucion(long tiempoEjecucion) {
-		this.tiempoEjecucion = tiempoEjecucion;
-	}
+	
 	/**
 	 * Imprime los resultados que tomo el algoritmo en realizar.
 	 */
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Resultados: \n");
+		sb.append("\nResultados: \n");
 		sb.append("Algoritmo: "+algoritmo+"\n");
 		sb.append("Interacciones: "+ interaciones+"\n");
 		sb.append("Comparaciones: "+comparaciones+"\n");

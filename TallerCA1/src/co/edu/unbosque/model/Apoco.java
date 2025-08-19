@@ -11,8 +11,6 @@ import java.lang.Math;
  * Aca almacenamos toda la información correspondiente con respecto al sistema
  * de información que maneja la corporación APOCO.
  * 
- * @author Alejandro
- * @author Juan Pablo Ríos Rodríguez.
  */
 public class Apoco {
 	/**
@@ -38,7 +36,6 @@ public class Apoco {
 	/**
 	 * Prepara las operaciones para realizar los respectivos algoritmos.
 	 * 
-	 * @author Juan Pablo Ríos Rodríguez.
 	 */
 	public Apoco() {
 		ordenador = new Ordenador();
@@ -114,7 +111,6 @@ public class Apoco {
 	/**
 	 * Muestra el arreglo con respecto a los políticos.
 	 * 
-	 * @author Juan Pablo Ríos Rodríguez
 	 * @return El arreglo completo con respecto a los politicos.
 	 */
 	public String mostrarPoliticos() {
@@ -128,7 +124,6 @@ public class Apoco {
 	/**
 	 * Imprime toda la matriz con respecto a los ladrones.
 	 * 
-	 * @author Juan Pablo Rios Rodriguez.
 	 * @return todos los ladrones registrados
 	 */
 	public String mostrarLadrones() {
@@ -146,7 +141,6 @@ public class Apoco {
 	 * Llame a la función para generar el arreglo con longitud n, que permita
 	 * realizar la respectiva prueba.
 	 * 
-	 * @author Juan Pablo Ríos Rodríguez
 	 */
 	public void generarPoliticos(int n) {
 		politicosSospechosos = ordenador.genereDatos(n);

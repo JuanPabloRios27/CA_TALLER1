@@ -10,7 +10,6 @@ public class Ordenador {
 	private Estadisticas estadisticas = new Estadisticas();
 	/**
 	 * Permite generar datos con respecto a la matriz.
-	 * @author Juan Pablo Ríos Rodríguez.
 	 */
 	public Politico[] genereDatos(int n) {
 		Politico [] politicosSospechosos = new Politico[n];
@@ -19,7 +18,11 @@ public class Ordenador {
 		}
 		return politicosSospechosos;
 	}
-	
+	/**
+	 * Algoritmo para ordenar los elementos al estilo bubbleSort.
+	 * @param politicos el objeto a ordenar.
+	 * @return el objeto de los politicos ya ordenado.
+	 */
 	public Politico[] bubbleSort(Politico[] politicos) {
 		Politico temp;
 		for(int i = 0; i < politicos.length - 1; i++) {
@@ -37,7 +40,11 @@ public class Ordenador {
 		estadisticas.finaliceMemoria();
 		return politicos;
 	}
-	
+	/**
+	 * Ordene el elemento en SelectionSort.
+	 * @param politico el objeto a ordenar
+	 * @return politico el objeto ya ordenado
+	 */
 	public Politico[] selectionSort(Politico[] politico) {
 		int n = politico.length;
 		for (int i = 0; i < n - 1; i++) {
@@ -59,6 +66,13 @@ public class Ordenador {
 		estadisticas.finaliceMemoria();
 		return politico;
 	}
+	/**
+	 * Para realizar el merge (ordena un subconjunto de elementos):
+	 * @param politico
+	 * @param left el elemento que se encuentra por la izquierda.
+	 * @param mid el punto medio entre los dos arreglos dividos.
+	 * @param right el elemento que se encuentra por la derecha.
+	 */
 	public void merge(Politico[] politico, int left, int mid, int right) {
 		int n1 = mid - left + 1;
 	    int n2 = right - mid;
@@ -98,6 +112,11 @@ public class Ordenador {
 	    	estadisticas.setInteraciones(estadisticas.getInteraciones()+1);
 	    }
 	}
+	/**
+	 * Algoritmo InsertionSort para los politicos.
+	 * @param politico el objeto tipo politico
+	 * @return El elemento ya ordenado.
+	 */
 	public Politico[] insertionSort(Politico[] politico) {
 		int n = politico.length;
 		for (int i = 1; i < n; i++) {
